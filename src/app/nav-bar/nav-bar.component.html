@@ -6,11 +6,11 @@
       </button>
     </div>
     <div class="nav-bar__middle">
-      <div class="nav-bar__list">
-        <span class="nav-bar__item" *ngFor="let item of navItems">
+      <div class="nav-bar__list" #navListELem>
+        <a *ngFor="let item of navItems" routerLink={{item.rout}} class="nav-bar__item" [id]="item.rout">
           <!--TODO: add rout listener to items-->
-          {{ item }}
-        </span>
+          {{ item.label }}
+        </a>
       </div>
     </div>
     <div class="nav-bar__right">
