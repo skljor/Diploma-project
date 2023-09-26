@@ -15,6 +15,11 @@
   font-style: italic;
 }
 
+.top-bar__left,
+.top-bar__right {
+  width: 30vw;
+}
+
 .top-bar__login-btn {
   display: flex;
   align-items: center;
@@ -34,6 +39,7 @@
   gap: 15px;
   align-items: center;
   color: $white-s;
+  justify-content: flex-end;
 }
 
 .top-bar__right-icon {
