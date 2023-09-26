@@ -1,0 +1,50 @@
+@import '../../sass/colors.scss';
+
+.top-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  align-items: center;
+  background-color: $dark-blue;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.top-bar__left {
+  color: $white-s;
+  font-style: italic;
+}
+
+.top-bar__login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  outline: none;
+  border: none;
+  color: white;
+  background-color: $blue-light;
+  padding: 4px 8px;
+  font-size: 19px;
+  font-weight: 300;
+}
+
+.top-bar__right {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  color: $white-s;
+}
+
+.top-bar__right-icon {
+  font-size: 16px;
+  color: $white-s;
+}
+
+.top-bar__accessblt-btn {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0px;
+  cursor: pointer;
+}
