@@ -1,0 +1,25 @@
+<div class="nav-bar__wrapper">
+  <div class="nav-bar__top">
+    <div class="nav-bar__left">
+      <button type="button" class="nav-bar__prev-btn nav-bar__slider-btn">
+        <fa-icon [icon]="iconPrev" class="nav-bar__icon"></fa-icon>
+      </button>
+    </div>
+    <div class="nav-bar__middle">
+      <div class="nav-bar__list">
+        <span class="nav-bar__item" *ngFor="let item of navItems">
+          <!--TODO: add rout listener to items-->
+          {{ item }}
+        </span>
+      </div>
+    </div>
+    <div class="nav-bar__right">
+      <button type="button" class="nav-bar__next-btn nav-bar__slider-btn active-btn">
+        <fa-icon [icon]="iconNext" class="nav-bar__icon"></fa-icon>
+      </button>
+    </div>
+  </div>
+  <div class="nav-bar__bottom">
+    <button type="button" class="nav-bar__expand-btn">показать всe</button>
+  </div>
+</div>
