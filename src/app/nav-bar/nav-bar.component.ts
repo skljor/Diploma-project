@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
-import { NavBarItem } from 'src/types/nav-bar-item';
-import { Router, NavigationEnd } from '@angular/router'
+import { NavItemData } from 'src/types/nav-item-data';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,34 +11,28 @@ import { Router, NavigationEnd } from '@angular/router'
 export class NavBarComponent {
   iconPrev = faAngleLeft;
   iconNext = faAngleRight;
-  navItems: NavBarItem[] = [
+  selectedItem: NavItemData | undefined;
+  navItems: NavItemData[] = [ //TODO: move to separate file
     {
       label: 'О министерстве',
-      rout: 'about',
+      route: 'about',
     },
     {
       label: 'Структура',
-      rout: 'structura',
+      route: 'structura',
     },
     {
       label: 'Подведомственные организации',
-      rout: 'pv-organizations',
+      route: 'pv-organizations',
     },
   ];
 
-  constructor(
-    private router: Router,
-    ) {
-      router.events.subscribe((ev) => {
-        if(ev instanceof NavigationEnd) this.handleUrlChange();
-      })
+  constructor(private router: Router) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {// уж лучше так, чем бегать по DOM через квериселектор
+        this.selectedItem = this.navItems.find((item) => item.route === event.url.split('/')[1]);
+      }
+    });
   }
 
-  private handleUrlChange() {
-    //i hate query search but in angular references to html elements works like shit
-    document.querySelectorAll('.nav-bar__item').forEach((item) => item.classList.remove('selected'));
-    const selector = `${this.router.url.slice(1)}`;
-    console.log(selector);
-    document.getElementById(selector)?.classList.add('selected');
-  }
 }
