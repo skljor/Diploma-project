@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 .nav-bar__wrapper {
-  color: $black-s;
+  color: $black-l;
 }
 
 .nav-bar__top {
@@ -22,15 +22,22 @@
 .nav-bar__middle {
   overflow: hidden;
   width: 84%;
-  &::after {
+  &::after,
+  &::before {
     content: "";
     position: absolute;
-    top: 20px;
+    top: 19px;
+    height: 32px;
+    width: 32px;
+  };
+  &::after {
     right: 9%;
     background: linear-gradient(to right, $white-s-transparent, $white-s);
-    height: 30px;
-    width: 25px;
-    opacity: 0.5;
+  };
+  &::before {
+    z-index: 1;
+    left: 9%;
+    background: linear-gradient(to left, $white-s-transparent, $white-s);
   }
 }
 
@@ -44,6 +51,7 @@
 .nav-bar__left,
 .nav-bar__right {
   position: relative;
+  z-index: 2;
 }
 
 .nav-bar__slider-btn,
@@ -58,11 +66,10 @@
   border-radius: 50%;
   border: solid 2px $black-s;
   box-sizing: border-box;
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
   background-color: $white-s;
   opacity: 0.5;
-
   &.active-btn {
     border-color: $blue-light;
     color: $blue-light;
@@ -78,12 +85,17 @@
 
 .nav-bar__icon {
   font-size: 16px;
+  position: relative;
 }
 
 .nav-bar__list {
   display: flex;
   gap: 20px;
   width: max-content;
+  position: relative;
+  transform: translateX(0px);
+  transition: transform 0.3s;
+  padding: 10px 15px;
 }
 
 .nav-bar__expand-btn {
