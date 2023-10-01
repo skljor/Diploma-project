@@ -1,17 +1,17 @@
 <div class="nav-bar__wrapper">
   <div class="nav-bar__top">
     <div class="nav-bar__left">
-      <button type="button" class="nav-bar__prev-btn nav-bar__slider-btn">
+      <button type="button" class="nav-bar__prev-btn nav-bar__slider-btn" (click)="handlePrevClick()" #prevBtn>
         <fa-icon [icon]="iconPrev" class="nav-bar__icon"></fa-icon>
       </button>
     </div>
-    <div class="nav-bar__middle">
-      <div class="nav-bar__list" #navListELem>
+    <div class="nav-bar__middle" #navListWrapper>
+      <div class="nav-bar__list" #navListElem>
         <app-nav-bar-item *ngFor="let item of navItems" [data]="item" [selected]="item === selectedItem"></app-nav-bar-item>
       </div>
     </div>
     <div class="nav-bar__right">
-      <button type="button" class="nav-bar__next-btn nav-bar__slider-btn active-btn">
+      <button type="button" class="nav-bar__next-btn nav-bar__slider-btn" (click)="handleNextClick()" #nextBtn>
         <fa-icon [icon]="iconNext" class="nav-bar__icon"></fa-icon>
       </button>
     </div>
