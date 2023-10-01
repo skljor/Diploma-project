@@ -8,6 +8,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TopHeaderComponent } from './top-header/top-header.component';
 import { PageAboutComponent } from './page-about/page-about.component';
 import { PageStructuraComponent } from './page-structura/page-structura.component';
+import { NavBarItemComponent } from './nav-bar-item/nav-bar-item.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PageStructuraComponent } from './page-structura/page-structura.componen
     NavBarComponent,
     TopHeaderComponent,
     PageAboutComponent,
-    PageStructuraComponent
+    PageStructuraComponent,
+    NavBarItemComponent
   ],
   imports: [
     BrowserModule,

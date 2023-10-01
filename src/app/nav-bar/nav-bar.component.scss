@@ -81,14 +81,3 @@
     background-color: $blue-light;
   }
 }
-
-.nav-bar__item {
-  text-decoration: none;
-  color: $black-s;
-  padding: 4px 8px;
-  &.selected {
-    color: $blue-light;
-    border: solid 1px $blue-light;
-    border-radius: 8px;
-  }
-}
