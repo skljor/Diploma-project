@@ -9,7 +9,6 @@
 
 .nav-bar__top {
   display: flex;
-  justify-content: space-between;
   box-sizing: border-box;
   height: 70px;
   align-items: center;
@@ -17,6 +16,22 @@
   padding: 0px 25px;
   position: relative;
   z-index: 1;
+  justify-content: center;
+}
+
+.nav-bar__middle {
+  overflow: hidden;
+  width: 84%;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 9%;
+    background: linear-gradient(to right, $white-s-transparent, $white-s);
+    height: 30px;
+    width: 25px;
+    opacity: 0.5;
+  }
 }
 
 .nav-bar__bottom {
@@ -24,6 +39,11 @@
   justify-content: center;
   position: relative;
   z-index: 0;
+}
+
+.nav-bar__left,
+.nav-bar__right {
+  position: relative;
 }
 
 .nav-bar__slider-btn,
@@ -63,6 +83,7 @@
 .nav-bar__list {
   display: flex;
   gap: 20px;
+  width: max-content;
 }
 
 .nav-bar__expand-btn {

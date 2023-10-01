@@ -25,6 +25,18 @@ export class NavBarComponent {
       label: 'Подведомственные организации',
       route: 'pv-organizations',
     },
+    {
+      label: 'Образовательные учереждения',
+      route: 'ed-establisments'
+    },
+    {
+      label: 'Информационные системы',
+      route: 'it-systems'
+    },
+    {
+      label: 'Вакансии',
+      route: 'jobs'
+    }
   ];
 
   constructor(private router: Router) {
