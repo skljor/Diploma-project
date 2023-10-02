@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageAboutComponent } from './page-about/page-about.component';
 import { PageStructuraComponent } from './page-structura/page-structura.component';
+import { Page404Component } from './page404/page404.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
     path: 'structura',
     component: PageStructuraComponent
   },
+  {
+    path: '**',
+    component: Page404Component
+  }
 ];
 
 @NgModule({
