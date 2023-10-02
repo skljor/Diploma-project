@@ -70,7 +70,9 @@ export class NavBarComponent implements AfterViewInit {
     this.selectedItem = this.navItems[0];
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {// уж лучше так, чем бегать по DOM через квериселектор
-        this.selectedItem = this.navItems.find((item) => item.route === event.url.split('/')[1]) ?? this.navItems[0];
+        const url = event.url.split('/')[1];
+
+        this.selectedItem = url ? this.navItems.find((item) => item.route === url) : this.navItems[0];
       }
     });
   }
