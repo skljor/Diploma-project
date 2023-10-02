@@ -67,9 +67,10 @@ export class NavBarComponent implements AfterViewInit {
   private sliderStep = 0;
 
   constructor(private router: Router) {
+    this.selectedItem = this.navItems[0];
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {// уж лучше так, чем бегать по DOM через квериселектор
-        this.selectedItem = this.navItems.find((item) => item.route === event.url.split('/')[1]);
+        this.selectedItem = this.navItems.find((item) => item.route === event.url.split('/')[1]) ?? this.navItems[0];
       }
     });
   }

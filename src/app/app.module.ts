@@ -9,6 +9,7 @@ import { TopHeaderComponent } from './top-header/top-header.component';
 import { PageAboutComponent } from './page-about/page-about.component';
 import { PageStructuraComponent } from './page-structura/page-structura.component';
 import { NavBarItemComponent } from './nav-bar-item/nav-bar-item.component';
+import { Page404Component } from './page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NavBarItemComponent } from './nav-bar-item/nav-bar-item.component';
     TopHeaderComponent,
     PageAboutComponent,
     PageStructuraComponent,
-    NavBarItemComponent
+    NavBarItemComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule,
