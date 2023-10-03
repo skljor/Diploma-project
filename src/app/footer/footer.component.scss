@@ -1,0 +1,41 @@
+@import '../../sass/colors.scss';
+
+.footer__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $dark-blue;
+  box-sizing: border-box;
+  padding: 10px 50px;
+  .footer__header {
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    margin: 6px 0px 0px;
+  }
+
+  .footer__p {
+    color: $white-s;
+    font-size: 16px;
+    text-align: center;
+    max-width: 900px;
+    margin: 8px 0px;
+    padding: 0px;
+  }
+
+  .footer__link {
+    text-decoration: none;
+    color: $gray;
+  }
+
+  .footer__line {
+    display: inline-block;
+    height: 2px;
+    border-radius: 2px;
+    background-color: rgba(white, $alpha: 0.3);
+    width: 900px;
+    margin: 0px;
+    padding: 0px;
+  }
+}
