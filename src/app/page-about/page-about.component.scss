@@ -1,13 +1,32 @@
 .managment-center {
-    text-align: center
+    display: flex;
+    justify-content: space-around;
 }
 
-.managment-cell {
-    height: 300px; 
-    width: 500px; 
-    border-style: none; 
+.red-line {
+    font-size: 20px;
+    font-weight: bold;
+    text-indent: 2%;
 }
 
 .non-marker-list {
     list-style-type: none;
+}
+
+.bold-font {
+    font-weight: bold;
+}
+
+.job-title-center {
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    font-weight: bold;
+    text-indent: 2%;
+}
+
+ol {
+    line-height: 150%;
 }
