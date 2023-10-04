@@ -26,19 +26,19 @@ ng build
 
 ## Tech. stack
 
-CourseStore powered by TypeScript and Angular
+CourseStore powered by TypeScript, SASS and Angular.
 
 #### Linter
 
-- `ESLint` with `eslint:recommended` and `plugin:@typescript-eslint/recommended` rule sets.
+- `ESLint` with Angular plugin.
 
 ## Team
 
 @vesnanervah - mentor: project setup, components, assets.
-@skjlor - student: components, assets.
+@skljor - student: components, assets.
 
 ## Project managment
-[Jira link](https://tamarafedanova.atlassian.net/jira/software/projects/DP/boards/2)
+[Jira link](https://nanervakh.atlassian.net/jira/software/projects/KAN/boards/1)
 
 ## Design
 
