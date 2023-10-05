@@ -1,0 +1,40 @@
+.about__managment-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.about__edge-indentation {
+    font-size: 20px;
+    font-weight: bold;
+    text-indent: 2%;
+}
+
+.about__non-marker-list {
+    list-style-type: none;
+}
+
+.about__job-title-center {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold;
+    text-indent: 2%;
+}
+
+ol {
+    line-height: 150%;
+}
+
+.about__full-name {
+    display: flex;
+    justify-content: center;
+}
+
+.about__managment {
+    font-weight: bold;
+    font-size: 20px;
+    text-indent: 2%;
+}
