@@ -1,6 +1,10 @@
 node_modules
 
-.angular
+client/node_modules
+
+server/node_modules
+
+client/.angular
 
 .idea
 
