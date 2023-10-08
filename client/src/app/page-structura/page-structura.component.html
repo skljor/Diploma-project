@@ -1,1 +1,60 @@
-<p>page-structura works!</p>
+<div class="page-structura__wrapper">
+  <h2 class="page-structura__header main-container__header">Структура</h2>
+  <div class="page-structura__map">
+    <div class="map__header">
+      Министерство труда и занятости населения Оренбургской области
+    </div>
+    <div class="map__content">
+      <div class="map__vertical-line"></div>
+      <div class="map__items" #mapItems>
+        <div class="map__item" *ngFor="let structure of structures">
+          <span class="map__horizontal-line"></span>
+          <span class="map__structure-name">{{ structure.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="page-structura__search-form">
+    <label class="page-structure__input-label">
+      Фамилия
+      <input type="text" class="page-structura__searchField">
+    </label>
+    <label class="page-structure__input-label">
+      Должность
+      <input type="text" class="page-structura__searchField">
+    </label>
+    <button type="submit" class="page-structura__searchSubmit">Поиск</button>
+    <button type="button" class="page-structura__searchReset"><fa-icon [icon]="resetIcon"></fa-icon></button>
+  </form>
+  <div class="page-structura__horizontal-line main-container__divideLine"></div>
+  <div class="page-structura__searchTable">
+    <div class="table__head">
+      <span class="table__header">СОТРУДНИК</span>
+      <span class="table__header">ПОДРАЗДЕЛЕНИЕ</span>
+      <span class="table__header">ДОЛЖНОСТЬ</span>
+      <span class="table__header">КОНТАКТНАЯ ИНФОРМАЦИЯ</span>
+    </div>
+    <div class="table__content">
+      <div class="table__item" *ngFor="let employ of employes">
+        <div class="table__employ">
+          <div class="employ__meet">
+            <fa-icon [icon]="employIcon" class="employ__icon"></fa-icon>
+            {{ employ.fullname }}
+          </div>
+          <div class="employ__structure">
+            {{ employ.structureCode }}
+          </div>
+          <div class="employ__job-title">
+            {{ employ.jobTitle }}
+          </div>
+          <div class="employ__contacts">
+            {{ employ.contacts.mail }}
+            <br>
+            {{ employ.contacts.phone }}
+          </div>
+        </div>
+        <div class="main-container__divideLine table__divideLine"></div>
+      </div>
+    </div>
+  </div>
+</div>

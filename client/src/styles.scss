@@ -1,8 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+@import './sass/colors.scss';
+
 body {
   margin: 0;
   padding: 0;
   * {
     font-family: 'Roboto', sans-serif;
   }
+}
+
+.main-container__header {
+  color: $black-l;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.main-container__divideLine {
+  height: 2px;
+  background-color: $white-s;
+  border-radius: 2px;
 }

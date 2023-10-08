@@ -1,6 +1,18 @@
+@import '../sass/colors.scss';
+
 .app-root {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   justify-content: space-between;
+
+  main {
+    margin: 0 auto;
+    width: 88%;
+  }
+
+  .main__divideLine {
+    height: 2px;
+    background-color: $white-s;
+  }
 }
