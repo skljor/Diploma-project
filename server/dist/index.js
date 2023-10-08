@@ -21,7 +21,6 @@ app.get('/employes', (req, res) => {
     //TODO: refactor
     const que = req.query;
     const queKeys = Object.keys(que);
-    console.log(req.query);
     if (queKeys.length === 0) {
         res.send(employes_1.employes);
         return;

@@ -12,6 +12,6 @@ export class EmployesService {
   ) { }
 
   getEmploys(queryString?: string) {
-    return this.http.get<Employ[]>('http://localhost:5000/employes' + queryString);
+    return this.http.get<Employ[]>(queryString ? `http://localhost:5000/employes?${queryString}` : 'http://localhost:5000/employes');
   }
 }

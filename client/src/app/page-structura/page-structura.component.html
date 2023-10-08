@@ -2,14 +2,16 @@
   <h2 class="page-structura__header main-container__header">Структура</h2>
   <div class="page-structura__map">
     <div class="map__header">
-      Министерство труда и занятости населения Оренбургской области
+      <button class="map__structure-all" (click)="selectAll()">
+        Министерство труда и занятости населения Оренбургской области
+      </button>
     </div>
     <div class="map__content">
       <div class="map__vertical-line"></div>
       <div class="map__items" #mapItems>
         <div class="map__item" *ngFor="let structure of structures">
           <span class="map__horizontal-line"></span>
-          <span class="map__structure-name">{{ structure.title }}</span>
+          <button type="button" class="map__structure-name" (click)="selectStructure(structure.code)">{{ structure.title }}</button>
         </div>
       </div>
     </div>
@@ -42,7 +44,7 @@
             {{ employ.fullname }}
           </div>
           <div class="employ__structure">
-            {{ employ.structureCode }}
+            {{ getStructureNameByCode(employ.structureCode) }}
           </div>
           <div class="employ__job-title">
             {{ employ.jobTitle }}
