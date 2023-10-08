@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { StructuresService } from '../structures.service';
 import { EmployesService } from '../employes.service';
 import { Structures } from '../../../../server/src/types/structures';
@@ -47,9 +48,17 @@ export class PageStructuraComponent implements OnInit {
     this.getEmployes(this.searchParams);
   }
 
+  searchSubmit(event: Event, secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
+    event.preventDefault();
+    this.searchParams.secondname = secondName.value.length > 0 ? secondName.value : undefined;
+    this.searchParams.jobTitle = jobTitle.value.length > 0 ? jobTitle.value : undefined;
+    this.getEmployes(this.searchParams);
+  }
+
   private getEmployes(queryParams?: EmployQueryParams) {
+    //  TODO: использовать observable по человечески с подпиской единожды при инициализации  и дальнейшем уведомлении об изменениях
     if (queryParams) {
-      const queryString = Object.keys(queryParams).reduce((acc, item, index, arr) => {
+      const queryString = Object.keys(queryParams).filter((key) => !!queryParams[key]).reduce((acc, item, index, arr) => {
         return index < (arr.length - 1) ? `${acc}${item}=${queryParams[item]}&` : `${acc}${item}=${queryParams[item]}`
       }, '');
       console.log(queryString);

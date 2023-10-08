@@ -16,14 +16,14 @@
       </div>
     </div>
   </div>
-  <form class="page-structura__search-form">
+  <form class="page-structura__search-form" (submit)="searchSubmit($event, secondName, jobTitle)">
     <label class="page-structure__input-label">
       Фамилия
-      <input type="text" class="page-structura__searchField">
+      <input type="text" class="page-structura__searchField" #secondName>
     </label>
     <label class="page-structure__input-label">
       Должность
-      <input type="text" class="page-structura__searchField">
+      <input type="text" class="page-structura__searchField" #jobTitle>
     </label>
     <button type="submit" class="page-structura__searchSubmit">Поиск</button>
     <button type="button" class="page-structura__searchReset"><fa-icon [icon]="resetIcon"></fa-icon></button>
