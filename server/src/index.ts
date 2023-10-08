@@ -11,14 +11,17 @@ const app = express();
 const PORT = 5000;
 
 app.get('/', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send('Api is working');
 })
 
 app.get('/structures', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send(structures);
 });
 
 app.get('/employes', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   //TODO: refactor
   const que = req.query as q;
   const queKeys = Object.keys(que);
