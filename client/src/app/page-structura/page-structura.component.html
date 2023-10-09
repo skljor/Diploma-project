@@ -1,1 +1,70 @@
-<p>page-structura works!</p>
+<div class="page-structura__wrapper">
+  <h2 class="page-structura__header main-container__header">Структура</h2>
+  <div class="page-structura__map">
+    <div class="map__header">
+      <button class="map__structure-all" (click)="selectAll()">
+        Министерство труда и занятости населения Оренбургской области
+      </button>
+    </div>
+    <div class="map__content">
+      <div class="map__vertical-line"></div>
+      <div class="map__items" #mapItems>
+        <div class="map__item" *ngFor="let structure of structures">
+          <span class="map__horizontal-line"></span>
+          <button type="button" class="map__structure-name" (click)="selectStructure(structure.code)">{{ structure.title }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form class="page-structura__search-form" (submit)="searchSubmit($event, secondName, jobTitle)">
+    <label class="page-structure__input-label">
+      Фамилия
+      <input type="text" class="page-structura__searchField" #secondName>
+    </label>
+    <label class="page-structure__input-label">
+      Должность
+      <input type="text" class="page-structura__searchField" #jobTitle>
+    </label>
+    <button type="submit" class="page-structura__searchSubmit">Поиск</button>
+    <button type="button" class="page-structura__searchReset"><fa-icon [icon]="resetIcon"></fa-icon></button>
+  </form>
+  <div class="page-structura__horizontal-line main-container__divideLine"></div>
+  <div class="page-structura__searchTable">
+    <div class="table__head">
+      <span class="table__header">СОТРУДНИК</span>
+      <span class="table__header">ПОДРАЗДЕЛЕНИЕ</span>
+      <span class="table__header">ДОЛЖНОСТЬ</span>
+      <span class="table__header">КОНТАКТНАЯ ИНФОРМАЦИЯ</span>
+    </div>
+    <div class="table__content">
+      <div [class]=" employes && employes.length > 0 ? 'table__nothing-found hidden' : 'table__nothing-found' ">
+        Ничего не найдено
+      </div>
+      <div class="table__item" *ngFor="let employ of getPagedEmployes()">
+        <div class="table__employ">
+          <div class="employ__meet">
+            <fa-icon [icon]="employIcon" class="employ__icon"></fa-icon>
+            {{ employ.fullname }}
+          </div>
+          <div class="employ__structure">
+            {{ getStructureNameByCode(employ.structureCode) }}
+          </div>
+          <div class="employ__job-title">
+            {{ employ.jobTitle }}
+          </div>
+          <div class="employ__contacts">
+            {{ employ.contacts.mail }}
+            <br>
+            {{ employ.contacts.phone }}
+          </div>
+        </div>
+        <div class="main-container__divideLine table__divideLine"></div>
+      </div>
+    </div>
+    <div [class]="employes && employes.length > 0 ? 'table__pagination' : 'table__pagination hidden' ">
+      <button type="button" *ngFor="let num of getPagCounts()" [class]=" selectedPagPage === num ? 'table__pag-btn selected' : 'table__pag-btn' " (click)="handlePagClick(num)">
+        {{ num }}
+      </button>
+    </div>
+  </div>
+</div>
