@@ -12,7 +12,7 @@
   box-sizing: border-box;
   height: 70px;
   align-items: center;
-  background-color: $white-s;
+  background-color: $white-l;
   padding: 0px 25px;
   position: relative;
   z-index: 1;
@@ -32,12 +32,12 @@
   };
   &::after {
     right: 9%;
-    background: linear-gradient(to right, $white-s-transparent, $white-s);
+    background: linear-gradient(to right, $white-l-transparent, $white-l);
   };
   &::before {
     z-index: 1;
     left: 9%;
-    background: linear-gradient(to left, $white-s-transparent, $white-s);
+    background: linear-gradient(to left, $white-l-transparent, $white-l);
   }
 }
 

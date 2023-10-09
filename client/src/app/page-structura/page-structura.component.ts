@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { StructuresService } from '../structures.service';
 import { EmployesService } from '../employes.service';
 import { Structures } from '../../../../server/src/types/structures';
@@ -21,7 +20,7 @@ export class PageStructuraComponent implements OnInit {
   employIcon = faUser;
   selectedPagPage = 1;
   private itemsPerPage = 6;
-  private searchParams: EmployQueryParams = {};
+  searchParams: EmployQueryParams = {};
 
 
   constructor (
@@ -103,5 +102,10 @@ export class PageStructuraComponent implements OnInit {
 
   handlePagClick(pageNum: number) {
     this.selectedPagPage = pageNum;
+  }
+
+  resetForm(secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
+    secondName.value = '';
+    jobTitle.value = '';
   }
 }

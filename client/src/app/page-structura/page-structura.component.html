@@ -9,7 +9,7 @@
     <div class="map__content">
       <div class="map__vertical-line"></div>
       <div class="map__items" #mapItems>
-        <div class="map__item" *ngFor="let structure of structures">
+        <div *ngFor="let structure of structures" [class]="searchParams.structureCode === structure.code ? 'map__item selected' : 'map__item' ">
           <span class="map__horizontal-line"></span>
           <button type="button" class="map__structure-name" (click)="selectStructure(structure.code)">{{ structure.title }}</button>
         </div>
@@ -26,7 +26,7 @@
       <input type="text" class="page-structura__searchField" #jobTitle>
     </label>
     <button type="submit" class="page-structura__searchSubmit">Поиск</button>
-    <button type="button" class="page-structura__searchReset"><fa-icon [icon]="resetIcon"></fa-icon></button>
+    <button type="button" class="page-structura__searchReset" (click)="resetForm(secondName, jobTitle)"><fa-icon [icon]="resetIcon"></fa-icon></button>
   </form>
   <div class="page-structura__horizontal-line main-container__divideLine"></div>
   <div class="page-structura__searchTable">
@@ -42,13 +42,13 @@
       </div>
       <div class="table__item" *ngFor="let employ of getPagedEmployes()">
         <div class="table__employ">
-          <div class="employ__meet">
+          <a class="employ__meet" [routerLink]="'/employ/' + employ.id ">
             <fa-icon [icon]="employIcon" class="employ__icon"></fa-icon>
             {{ employ.fullname }}
-          </div>
-          <div class="employ__structure">
+          </a>
+          <button class="employ__structure" type="button" (click)="selectStructure(employ.structureCode)">
             {{ getStructureNameByCode(employ.structureCode) }}
-          </div>
+          </button>
           <div class="employ__job-title">
             {{ employ.jobTitle }}
           </div>

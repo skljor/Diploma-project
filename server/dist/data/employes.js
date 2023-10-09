@@ -134,6 +134,149 @@ const employes = [
         secondname: 'Вольникова',
         structureCode: '440'
     },
+    {
+        id: '13',
+        fullname: 'Зирюкин Дмитрий Дмитриевич',
+        jobTitle: 'Начальник отдела',
+        contacts: {
+            phone: '+7 (3532) 77-01-36',
+            mail: 'ddz@mail.orb.ru'
+        },
+        secondname: 'Зирюкин',
+        structureCode: '441'
+    },
+    {
+        id: '14',
+        fullname: 'Кривошеенкова Марина Владиславовна',
+        jobTitle: 'Заместитель начальника отдел',
+        contacts: {
+            phone: '+7 (3532) 77-01-36',
+            mail: 'mvkr@mail.orb.ru'
+        },
+        secondname: 'Кривошеенкова',
+        structureCode: '441'
+    },
+    {
+        id: '15',
+        fullname: 'Ахметшина Лиана Илдаровна',
+        jobTitle: 'Главный специалист',
+        contacts: {
+            phone: '+7 (3532) 77-01-36',
+            mail: 'all@mail.orb.ru'
+        },
+        secondname: 'Ахметшина',
+        structureCode: '441'
+    },
+    {
+        id: '16',
+        fullname: 'Курец Татьяна Николаевна',
+        jobTitle: 'Начальник отдела',
+        contacts: {
+            phone: '+7 (3532) 78-40-23',
+            mail: 'tnk@mail.orb.ru'
+        },
+        secondname: 'Курец',
+        structureCode: '442'
+    },
+    {
+        id: '17',
+        fullname: 'Красножён Елена Игоревна',
+        jobTitle: 'Ведущий специалист',
+        contacts: {
+            phone: '+7 (3532) 78-40-23',
+            mail: 'elkr@mail.orb.ru'
+        },
+        secondname: 'Красножён',
+        structureCode: '442'
+    },
+    {
+        id: '18',
+        fullname: 'Агашина Ксения Александровна',
+        jobTitle: 'Специалист 1 категории',
+        contacts: {
+            phone: '+7 (3532) 78-40-23',
+            mail: 'kts2@mail.orb.ru'
+        },
+        secondname: 'Агашина',
+        structureCode: '442'
+    },
+    {
+        id: '19',
+        fullname: 'Бочкарева Наталья Александровна',
+        jobTitle: 'Начальник отдела',
+        contacts: {
+            phone: '+7 (3532) 77-09-09',
+            mail: 'naboch@mail.orb.ru'
+        },
+        secondname: 'Бочкарева',
+        structureCode: '443'
+    },
+    {
+        id: '20',
+        fullname: 'Пономаренко Наталья Станиславовна',
+        jobTitle: 'Главный специалист',
+        contacts: {
+            phone: '+7 (3532) 77-09-09',
+            mail: 'nsp@mail.orb.ru'
+        },
+        secondname: 'Пономаренко',
+        structureCode: '443'
+    },
+    {
+        id: '21',
+        fullname: 'Камалутдиновна Лилия Маккамаровна',
+        jobTitle: 'Главный специалист',
+        contacts: {
+            phone: '+7 (3532) 77-09-09',
+            mail: 'lmk@mail.orb.ru'
+        },
+        secondname: 'Камалутдиновна',
+        structureCode: '443'
+    },
+    {
+        id: '22',
+        fullname: 'Маркина Оксана Сергеевна',
+        jobTitle: 'Ведущий специалист',
+        contacts: {
+            phone: '+7 (3532) 77-09-09',
+            mail: 'mos@mail.orb.ru'
+        },
+        secondname: 'Маркина',
+        structureCode: '443'
+    },
+    {
+        id: '23',
+        fullname: 'Алиева Альбина Равильевна',
+        jobTitle: 'Начальник отдела',
+        contacts: {
+            phone: '+7 (3532) 77-22-48',
+            mail: 'ara@mail.orb.ru'
+        },
+        secondname: 'Алиева',
+        structureCode: '444'
+    },
+    {
+        id: '24',
+        fullname: 'Дарбаева Мариям Кинесаровна',
+        jobTitle: 'Консультант',
+        contacts: {
+            phone: '+7 (3532) 77-22-48',
+            mail: 'mkd@mail.orb.ru'
+        },
+        secondname: 'Дарбаева',
+        structureCode: '444'
+    },
+    {
+        id: '25',
+        fullname: 'Уколова Светлана Викторовна',
+        jobTitle: 'Главный специалист',
+        contacts: {
+            phone: '+7 (3532) 77-22-48',
+            mail: 'svy@mail.orb.ru'
+        },
+        secondname: 'Уколова',
+        structureCode: '444'
+    },
 ];
 exports.employes = employes;
 const employesSearchQs = ["secondname", "structureCode", "jobTitle"];
