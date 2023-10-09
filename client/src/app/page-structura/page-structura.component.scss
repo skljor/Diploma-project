@@ -14,7 +14,7 @@
     text-align: start;
     &:hover{
       cursor: pointer;
-      background-color: $blue-light;
+      background-color: $dark-blue-s;
     };
   }
 
@@ -55,9 +55,17 @@
     align-items: center;
     gap: 5px;
     margin-top: 15px;
+
     :hover {
       cursor: pointer;
-      color: $blue-light;
+      color: $dark-blue-s;
+    }
+
+    &.selected {
+      .map__structure-name {
+        background-color: $blue-light;
+        color: white;
+      }
     }
   }
 
@@ -104,6 +112,12 @@
     padding: 0 10px;
     font-size: 18px;
     font-weight: 500;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $blue-light-s;
+    }
+
   }
 
   .page-structura__searchReset {
@@ -113,6 +127,12 @@
     width: 38px;
     border-radius: 50%;
     color: $black-s;
+
+    &:hover {
+      cursor: pointer;
+      color: $black-l;
+      border-color: $black-l;
+    }
   }
 
   .page-structura__horizontal-line {
@@ -182,6 +202,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      text-decoration: none;
     }
 
     .employ__icon {
@@ -192,7 +213,14 @@
       color: $blue-light;
       font-size: 14px;
       padding: 0 10px;
+      border: none;
+      outline: none;
       cursor: pointer;
+
+      &:hover {
+        color: $dark-blue-s;
+      }
+
     }
 
     .employ__job-title {
@@ -250,7 +278,7 @@
 
       &:hover {
         cursor: default;
-        background-color: $dark-blue;
+        background-color: $dark-blue
       }
       
     }
