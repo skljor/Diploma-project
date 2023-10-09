@@ -19,6 +19,8 @@ export class PageStructuraComponent implements OnInit {
   employes: Employ[] | undefined;
   resetIcon = faRedo;
   employIcon = faUser;
+  selectedPagPage = 1;
+  private itemsPerPage = 6;
   private searchParams: EmployQueryParams = {};
 
 
@@ -46,6 +48,8 @@ export class PageStructuraComponent implements OnInit {
   selectStructure(strucureCode: string) {
     this.searchParams.structureCode = strucureCode;
     this.getEmployes(this.searchParams);
+    this.selectedPagPage = 1;
+
   }
 
   searchSubmit(event: Event, secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
@@ -53,6 +57,8 @@ export class PageStructuraComponent implements OnInit {
     this.searchParams.secondname = secondName.value.length > 0 ? secondName.value : undefined;
     this.searchParams.jobTitle = jobTitle.value.length > 0 ? jobTitle.value : undefined;
     this.getEmployes(this.searchParams);
+    this.selectedPagPage = 1;
+
   }
 
   private getEmployes(queryParams?: EmployQueryParams) {
@@ -70,5 +76,32 @@ export class PageStructuraComponent implements OnInit {
         this.employes = data;
       });
     }
+  }
+
+  getPagCounts(): Set<number> {
+    return this.employes ? this.createPagSet(this.employes.length) : new Set([0]);
+  }
+
+  private createPagSet(total: number): Set<number> {
+    const set: Set<number> = new Set();
+    for (let num = 1; num <= Math.ceil(total / this.itemsPerPage); num ++) {
+      set.add(num);
+    }
+    return set;
+  }
+
+  getPagedEmployes() {
+    if (this.employes?.length === 0) {
+      return [];
+    }
+    return this.selectedPagPage === 1 ? //экскьюз муар за трехэтажный тернарник, я просто люблю тернарники
+    this.employes?.slice(0, this.itemsPerPage) : 
+    this.employes?.slice(this.itemsPerPage * (this.selectedPagPage - 1),
+      (this.itemsPerPage * this.selectedPagPage) > this.employes.length ? this.employes.length : this.itemsPerPage * this.selectedPagPage
+    );
+  }
+
+  handlePagClick(pageNum: number) {
+    this.selectedPagPage = pageNum;
   }
 }

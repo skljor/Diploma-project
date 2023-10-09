@@ -219,4 +219,41 @@
       display: none;
     }
   }
+
+  .table__pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    &.hidden {
+      display: none;
+    }
+  }
+
+  .table__pag-btn {
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    height: 30px;
+    width: 30px;
+    background-color: $white-s;
+    color: $black-s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $gray-s;
+    }
+
+    &.selected {
+      background-color: $dark-blue;
+      color: white;
+
+      &:hover {
+        cursor: default;
+        background-color: $dark-blue;
+      }
+      
+    }
+
+  }
 }
