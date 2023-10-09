@@ -37,6 +37,9 @@
       <span class="table__header">КОНТАКТНАЯ ИНФОРМАЦИЯ</span>
     </div>
     <div class="table__content">
+      <div [class]=" employes && employes.length > 0 ? 'table__nothing-found hidden' : 'table__nothing-found' ">
+        Ничего не найдено
+      </div>
       <div class="table__item" *ngFor="let employ of employes">
         <div class="table__employ">
           <div class="employ__meet">

@@ -209,4 +209,14 @@
   .table__divideLine {
     margin-top: 15px;
   }
+
+  .table__nothing-found {
+    padding: 100px;
+    text-align: center;
+    font-size: 20px;
+    color: $black-s;
+    &.hidden {
+      display: none;
+    }
+  }
 }
