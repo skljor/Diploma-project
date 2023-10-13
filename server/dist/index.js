@@ -14,7 +14,20 @@ app.get('/', (req, res) => {
 });
 app.get('/structures', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    res.send(structures_1.structures);
+    const que = req.query;
+    const queKeys = Object.keys(que);
+    if (queKeys.length === 0) {
+        res.send(structures_1.structures);
+        return;
+    }
+    else if (queKeys.length === 1 && queKeys[0] === 'structureCode') {
+        res.send(structures_1.structures.find((structure) => structure.code === que[queKeys[0]]));
+    }
+    else {
+        res.statusCode = 404;
+        res.statusMessage = 'Query string is invalid';
+        res.send('Invalid values in query string');
+    }
 });
 app.get('/employes', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');

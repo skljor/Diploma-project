@@ -6,13 +6,14 @@ import { Employ } from '../../../../server/src/types/employ';
 import { EmployQueryParams } from 'src/types/employ-query-params';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { StructuresObserver } from 'src/types/structures-observer';
 
 @Component({
   selector: 'app-page-structura',
   templateUrl: './page-structura.component.html',
   styleUrls: ['./page-structura.component.scss']
 })
-export class PageStructuraComponent implements OnInit {
+export class PageStructuraComponent implements OnInit, StructuresObserver {
 
   structures: Structures | undefined;
   employes: Employ[] | undefined;
@@ -29,9 +30,7 @@ export class PageStructuraComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.structuresService.fetchData().subscribe((data) => {
-      this.structures = data;
-    });
+    this.structuresService.subscribe(this);
     this.getEmployes();
   }
 
@@ -66,7 +65,6 @@ export class PageStructuraComponent implements OnInit {
       const queryString = Object.keys(queryParams).filter((key) => !!queryParams[key]).reduce((acc, item, index, arr) => {
         return index < (arr.length - 1) ? `${acc}${item}=${queryParams[item]}&` : `${acc}${item}=${queryParams[item]}`
       }, '');
-      console.log(queryString);
       this.employesService.getEmploys(queryString).subscribe((data) => {
         this.employes = data;
       });
@@ -107,5 +105,9 @@ export class PageStructuraComponent implements OnInit {
   resetForm(secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
     secondName.value = '';
     jobTitle.value = '';
+  }
+
+  listernStructuresUpdate(structures: Structures): void {
+    this.structures = structures;
   }
 }
