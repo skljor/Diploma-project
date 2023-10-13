@@ -1,0 +1,29 @@
+<div class="page-employ__wrapper">
+  <h2 class="page-employ__header main-container__header">Сотрудник</h2>
+  <div class="page-employ__info">
+    <div class="page-employ__photo">
+      <fa-icon [icon]="employIcon" class="page-employ__icon"></fa-icon>
+    </div>
+    <h3 class="page-employ__name">
+      {{ employ?.fullname }}
+    </h3>
+    <div class="page-employ__table">
+      <div class="page-employ__tr">
+        <div class="page-employ__label">Подразделение</div>
+        <div class="page-employ__data">{{ getStructureName() }}</div>
+      </div>
+      <div class="page-employ__tr">
+        <div class="page-employ__label">Должность</div>
+        <div class="page-employ__data">{{ employ?.jobTitle }}</div>
+      </div>
+      <div class="page-employ__tr">
+        <div class="page-employ__label">Почта</div>
+        <div class="page-employ__data">{{ employ?.contacts?.mail }}</div>
+      </div>
+      <div class="page-employ__tr">
+        <div class="page-employ__label">Телефон</div>
+        <div class="page-employ__data">{{ employ?.contacts?.phone }}</div>
+      </div>
+    </div>
+  </div>
+</div>

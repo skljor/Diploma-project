@@ -279,5 +279,5 @@ const employes = [
     },
 ];
 exports.employes = employes;
-const employesSearchQs = ["secondname", "structureCode", "jobTitle"];
+const employesSearchQs = ["secondname", "structureCode", "jobTitle", 'id'];
 exports.employesSearchQs = employesSearchQs;

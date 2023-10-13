@@ -12,6 +12,7 @@ import { PageStructuraComponent } from './page-structura/page-structura.componen
 import { NavBarItemComponent } from './nav-bar-item/nav-bar-item.component';
 import { Page404Component } from './page404/page404.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageEmployComponent } from './page-employ/page-employ.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './footer/footer.component';
     PageStructuraComponent,
     NavBarItemComponent,
     Page404Component,
-    FooterComponent
+    FooterComponent,
+    PageEmployComponent
   ],
   imports: [
     BrowserModule,

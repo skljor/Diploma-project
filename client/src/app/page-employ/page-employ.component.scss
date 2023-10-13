@@ -1,0 +1,52 @@
+@import '../../sass/colors.scss';
+
+
+.page-employ__wrapper {
+  
+  padding-bottom: 100px;
+
+  .page-employ__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $black-m;
+  }
+
+  .page-employ__icon {
+    font-size: 56px;
+  }
+
+  .page-employ__name {
+    font-size: 24px;
+    font-weight: 500;
+    color: $black-l;
+  }
+
+  .page-employ__tr {
+    display: flex;
+    font-size: 18px;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+
+  .page-employ__label {
+    background-color: $white-l;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    width: 172px;
+    justify-content: center;
+  }
+
+  .page-employ__data {
+    box-sizing: border-box;
+    border: solid $white-l 2px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    padding-left: 10px;
+  }
+}
