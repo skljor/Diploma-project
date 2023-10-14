@@ -15,7 +15,8 @@
 - secondname
 >Должность
 - jobTitle
-
+>id сотрудника
+- id
 
 ## get /structures
 
