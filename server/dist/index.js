@@ -24,14 +24,11 @@ app.get('/structures', (req, res) => {
         res.send(structures_1.structures.find((structure) => structure.code === que[queKeys[0]]));
     }
     else {
-        res.statusCode = 404;
-        res.statusMessage = 'Query string is invalid';
-        res.send('Invalid values in query string');
+        handleInvalidQuery(res);
     }
 });
 app.get('/employes', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
-    //TODO: refactor
     const que = req.query;
     const queKeys = Object.keys(que);
     if (queKeys.length === 0) {
@@ -45,9 +42,7 @@ app.get('/employes', (req, res) => {
         }));
     }
     else {
-        res.statusCode = 404;
-        res.statusMessage = 'Query string is invalid';
-        res.send('Invalid values in query string');
+        handleInvalidQuery(res);
     }
 });
 app.listen(PORT, () => {
@@ -55,4 +50,9 @@ app.listen(PORT, () => {
 });
 function validateGetEmployes(que) {
     return Object.keys(que).every((str) => employes_1.employesSearchQs.includes(str));
+}
+function handleInvalidQuery(res) {
+    res.statusCode = 404;
+    res.statusMessage = 'Query string is invalid';
+    res.send('Invalid values in query string');
 }
