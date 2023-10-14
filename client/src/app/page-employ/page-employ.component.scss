@@ -49,4 +49,16 @@
     align-items: center;
     padding-left: 10px;
   }
+
+  .page-employ__not-found {
+    font-size: 18px;
+    color: $black-m;
+    margin: 100px auto 100px;
+    text-align: center;
+    max-width: 300px;
+  }
+
+  .hidden {
+    display: none;
+  }
 }
