@@ -1,6 +1,9 @@
 <div class="page-employ__wrapper">
   <h2 class="page-employ__header main-container__header">Сотрудник</h2>
-  <div class="page-employ__info">
+  <div [class]="employ?.fullname ? 'page-employ__not-found hidden' : 'page-employ__not-found'">
+    Проблема с загрузкой данных. Подождите или попробуйте найти другого сотрудника.
+  </div>
+  <div [class]="employ?.fullname ? 'page-employ__info' : 'page-employ__info hidden' ">
     <div class="page-employ__photo">
       <fa-icon [icon]="employIcon" class="page-employ__icon"></fa-icon>
     </div>
