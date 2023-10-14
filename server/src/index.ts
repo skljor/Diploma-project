@@ -2,6 +2,7 @@ import express from 'express';
 import { Response } from 'express';
 import { structures } from './data/structures';
 import { employes, employesSearchQs } from './data/employes';
+import { suborgs } from './data/suborgs';
 
 type q = {
   //гоните его, надсмехайтесь над ним: он не может понять дебильной логики типизации queryString в Express
@@ -49,6 +50,10 @@ app.get('/employes', (req, res) => {
     handleInvalidQuery(res);
   }
 });
+
+app.get('suborgs', (req, res) => {
+  res.send(suborgs);
+})
 
 app.listen(PORT, () => {
   console.log('The backend is online on port ' + PORT);

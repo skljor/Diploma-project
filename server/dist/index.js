@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const structures_1 = require("./data/structures");
 const employes_1 = require("./data/employes");
+const suborgs_1 = require("./data/suborgs");
 const app = (0, express_1.default)();
 const PORT = 5000;
 app.get('/', (req, res) => {
@@ -44,6 +45,9 @@ app.get('/employes', (req, res) => {
     else {
         handleInvalidQuery(res);
     }
+});
+app.get('suborgs', (req, res) => {
+    res.send(suborgs_1.suborgs);
 });
 app.listen(PORT, () => {
     console.log('The backend is online on port ' + PORT);
