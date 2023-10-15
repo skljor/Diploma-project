@@ -1,7 +1,6 @@
 import { Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Structures } from '../../../server/src/types/structures';
-import { Observable } from 'rxjs';
 import { StructuresObserver, StructuresSubject } from 'src/types/structures-observer';
 
 @Injectable({
