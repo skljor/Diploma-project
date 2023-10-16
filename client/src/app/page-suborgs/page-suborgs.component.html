@@ -1,0 +1,65 @@
+<div class="page-suborgs__wrapper">
+  <h2 class="page-suborgs__header main-container__header">
+    Подведомственные организации
+  </h2>
+  <form class="page-suborgs__search-form" (submit)="sumbitForm(suborgName, headName, $event)">
+    <label class="page-suborgs__input-label">
+      Наименование
+      <input type="text" class="page-suborgs__searchField" #suborgName>
+    </label>
+    <label class="page-suborgs__input-label">
+      Руководитель
+      <input type="text" class="page-suborgs__searchField" #headName>
+    </label>
+    <button type="submit" class="page-suborgs__searchSubmit">Поиск</button>
+    <button type="button" class="page-suborgs__searchReset" (click)="resetForm(suborgName, headName)"><fa-icon [icon]="resetIcon"></fa-icon></button>
+  </form>
+  <div class="page-suborgs__suborgs-table">
+    <div [class]=" filteredSuborgs && filteredSuborgs.length > 0 ? 'table__nothing-found hidden' : 'table__nothing-found' ">
+      Ничего не найдено
+    </div>
+    <div class="suborg" *ngFor="let suborg of getPagedSubrogs()">
+      <h3 class="suborg__name">
+        {{suborg.name}}
+      </h3>
+      <div class="suborg__bellow">
+        <div class="suborg__phone">
+          <fa-icon [icon]="phoneIcon"></fa-icon>
+           {{suborg.contacts.phone}} 
+        </div>
+        <div class="suborg__mail">
+          <fa-icon [icon]="mailIcon"></fa-icon>
+          {{ suborg.contacts.mail }}
+        </div>
+        <div class="suborg__st-phone" *ngIf="suborg.contacts.stPhone">
+          <fa-icon [icon]="stPhoneIcon"></fa-icon>
+           {{ suborg.contacts.stPhone }}
+        </div>
+        <div class="suborg__head">
+          <span class="suborg__placeholder">
+            Руководитель:
+          </span>
+          {{ suborg.headName }}
+        </div>
+        <div class="suborg__law-adress">
+          <span class="suborg__placeholder">
+            Юридический адрес:
+          </span>
+          {{ suborg.lawAdress }}
+        </div>
+        <div class="suborg__real-adress">
+          <span class="suborg__placeholder">
+            Фактический адрес:
+          </span>
+          {{ suborg.realAdress }}
+        </div>
+      </div>
+      <div class="main-container__divideLine"></div>
+    </div>
+  </div>
+  <div [class]="filteredSuborgs && filteredSuborgs.length > 0 ? 'table__pagination' : 'table__pagination hidden' ">
+    <button type="button" *ngFor="let num of getPagCounts()" [class]=" selectedPage === num ? 'table__pag-btn selected' : 'table__pag-btn' " (click)="handlePagClick(num)">
+      {{ num }}
+    </button>
+  </div>
+</div>

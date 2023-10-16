@@ -27,7 +27,7 @@ export class NavBarComponent implements AfterViewInit {
     },
     {
       label: 'Подведомственные организации',
-      route: 'pv-organizations',
+      route: 'suborgs',
     },
     {
       label: 'Образовательные учереждения',

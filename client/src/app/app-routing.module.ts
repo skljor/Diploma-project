@@ -4,6 +4,7 @@ import { PageAboutComponent } from './page-about/page-about.component';
 import { PageStructuraComponent } from './page-structura/page-structura.component';
 import { Page404Component } from './page404/page404.component';
 import { PageEmployComponent } from './page-employ/page-employ.component';
+import { PageSuborgsComponent } from './page-suborgs/page-suborgs.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,11 @@ const routes: Routes = [
     title: 'employ',
     path: 'employ/:id',
     component: PageEmployComponent
+  },
+  {
+    title: 'suborgs',
+    path: 'suborgs',
+    component: PageSuborgsComponent
   },
   {
     path: '**',

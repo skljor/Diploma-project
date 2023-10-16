@@ -76,7 +76,7 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   }
 
   getPagCounts(): Set<number> {
-    return this.employes ? this.createPagSet(this.employes.length) : new Set([0]);
+    return this.employes ? this.createPagSet(this.employes.length) : new Set([1]);
   }
 
   private createPagSet(total: number): Set<number> {
