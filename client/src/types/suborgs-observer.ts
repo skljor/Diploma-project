@@ -7,7 +7,7 @@ interface SuborgsSubject {
 }
 
 interface SuborgsObserver {
-  listernSuborgsUpdate(suborgs: Organizations): void
+  listenSuborgsUpdate(suborgs: Organizations): void
 }
 
 export { SuborgsSubject, SuborgsObserver }

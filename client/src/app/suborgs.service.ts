@@ -26,12 +26,12 @@ export class SuborgsService implements SuborgsSubject {
 
   public subscribe(observer: SuborgsObserver): void {
     this.listeners.push(observer);
-    if(this.suborgs)observer.listernSuborgsUpdate(this.suborgs);
+    if(this.suborgs)observer.listenSuborgsUpdate(this.suborgs);
   }
 
   notify(suborgs: Organizations): void {
     this.listeners.forEach((subscriber) => {
-      subscriber.listernSuborgsUpdate(suborgs);
+      subscriber.listenSuborgsUpdate(suborgs);
     })
   }
 }

@@ -51,7 +51,8 @@ app.get('/employes', (req, res) => {
   }
 });
 
-app.get('suborgs', (req, res) => {
+app.get('/suborgs', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send(suborgs);
 })
 
