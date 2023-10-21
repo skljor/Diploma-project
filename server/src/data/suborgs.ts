@@ -195,4 +195,6 @@ const suborgs: Organizations = [
   },
 ]
 
-export { suborgs };
+const subOrgsModelQuery = [`ROWID`, `name`, `headName`, `lawAdress`, `realAdress`, `phone`, `stPhone`, `mail`];
+
+export { suborgs, subOrgsModelQuery  };

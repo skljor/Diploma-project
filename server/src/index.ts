@@ -2,7 +2,8 @@ import express from 'express';
 import { Response } from 'express';
 import { structures } from './data/structures';
 import { employes, employesSearchQs } from './data/employes';
-import { suborgs } from './data/suborgs';
+import { subOrgsModelQuery } from './data/suborgs';
+import { Sequelize, DataTypes } from 'sequelize';
 
 type q = {
   //гоните его, надсмехайтесь над ним: он не может понять дебильной логики типизации queryString в Express
@@ -11,13 +12,31 @@ type q = {
 
 const app = express();
 const PORT = 5000;
+const sequelize = new Sequelize({
+  host:'./database/sqlite.db',
+  dialect: 'sqlite'
+})
+
+const SubOrg = sequelize.define('SubOrganization', {
+    ROWID: { type: DataTypes.NUMBER },
+    name: { type: DataTypes.STRING },
+    headName: { type: DataTypes.STRING },
+    lawAdress: { type: DataTypes.STRING },
+    realAdress: { type: DataTypes.STRING },
+    phone: { type: DataTypes.STRING },
+    stPhone: { type: DataTypes.STRING },
+    mail: { type: DataTypes.STRING }
+  },{ 
+    timestamps: false,
+    tableName: 'SubOrganizations',
+   });
 
 app.get('/', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.send('Api is working');
 })
 
-app.get('/structures', (req, res) => {
+app.get('/structures', async(req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   const que = req.query as q;
   const queKeys = Object.keys(que);
@@ -51,8 +70,11 @@ app.get('/employes', (req, res) => {
   }
 });
 
-app.get('/suborgs', (req, res) => {
+app.get('/suborgs', async(req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
+  const suborgs = await SubOrg.findAll({
+    attributes: subOrgsModelQuery
+  });
   res.send(suborgs);
 })
 

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.suborgs = void 0;
+exports.subOrgsModelQuery = exports.suborgs = void 0;
 const suborgs = [
     {
         id: '1',
@@ -195,3 +195,5 @@ const suborgs = [
     },
 ];
 exports.suborgs = suborgs;
+const subOrgsModelQuery = [`ROWID`, `name`, `headName`, `lawAdress`, `realAdress`, `phone`, `stPhone`, `mail`];
+exports.subOrgsModelQuery = subOrgsModelQuery;
