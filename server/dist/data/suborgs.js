@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.subOrgsModelQuery = exports.suborgs = void 0;
+exports.suborgs = void 0;
 const suborgs = [
     {
         id: '1',
@@ -12,18 +12,6 @@ const suborgs = [
         lawAdress: '460000, г.Оренбург, ул.Пушкинская, 14',
         realAdress: '460000, г.Оренбург, ул.Пушкинская, 14',
         name: 'ГОСУДАРСТВЕННОЕ КАЗЕННОЕ УЧРЕЖДЕНИЕ "ЦЕНТР ЗАНЯТОСТИ НАСЕЛЕНИЯ Г.ОРЕНБУРГА И ОРЕНБУРГСКОГО РАЙОНА"'
-    },
-    {
-        id: '2',
-        contacts: {
-            phone: '(3537) 37-21-61',
-            mail: 'czn_orsk@mail.orb.ru',
-            stPhone: '(3537) 37-21-61'
-        },
-        headName: 'Кистерская Наталья Николаевна',
-        lawAdress: '462403, Оренбургская область, г.Орск, ул.Краматорская, 5Б',
-        realAdress: '462403, Оренбургская область, г.Орск, ул.Краматорская, 5Б',
-        name: 'ГОСУДАРСТВЕННОЕ КАЗЕННОЕ УЧРЕЖДЕНИЕ "ЦЕНТР ЗАНЯТОСТИ НАСЕЛЕНИЯ ГОРОДА ОРСКА"'
     },
     {
         id: '2',
@@ -195,5 +183,3 @@ const suborgs = [
     },
 ];
 exports.suborgs = suborgs;
-const subOrgsModelQuery = [`ROWID`, `name`, `headName`, `lawAdress`, `realAdress`, `phone`, `stPhone`, `mail`];
-exports.subOrgsModelQuery = subOrgsModelQuery;
