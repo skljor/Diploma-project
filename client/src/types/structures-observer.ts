@@ -7,7 +7,7 @@ interface StructuresSubject {
 }
 
 interface StructuresObserver {
-  listernStructuresUpdate(structures: Structures): void
+  listenStructuresUpdate(structures: Structures): void
 }
 
 export { StructuresSubject, StructuresObserver }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployesService } from '../employes.service';
 import { StructuresService } from '../structures.service';
-import { Employ } from '../../../../server/src/types/employ';
+import { Employee } from '../../../../server/src/types/employee';
 import { ActivatedRoute } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Structures } from '../../../../server/src/types/structures';
@@ -13,7 +13,7 @@ import { StructuresObserver } from 'src/types/structures-observer';
   styleUrls: ['./page-employ.component.scss']
 })
 export class PageEmployComponent implements OnInit, StructuresObserver {
-  employ: Employ | undefined;
+  employee: Employee | undefined;
   structures: Structures | undefined;
   employIcon = faUser;
 
@@ -25,17 +25,26 @@ export class PageEmployComponent implements OnInit, StructuresObserver {
 
   ngOnInit(): void {
     const id = this.activatedRoot.snapshot.paramMap.get('id')
-    this.employService.getEmploys(`id=${id}`).subscribe((data) => {
-      this.employ = data[0];
+    this.employService.getEmployees().subscribe((data) => {
+      this.employee = data.find((employee) => employee.employeeID === parseInt(id as string));
     });
     this.structuresService.subscribe(this);
   }
 
-  listernStructuresUpdate(structures: Structures): void {
+  listenStructuresUpdate(structures: Structures): void {
     this.structures = structures;
   }
 
   getStructureName() {
-    return this.structures?.find((structure) => structure.code === this.employ?.structureCode)?.title;
+    return this.structures?.find((structure) => structure.code === this.employee?.structureCode)?.title;
+  }
+
+  getFullName() {
+    return '' 
+    + (this.employee?.lastName ? `${this.employee?.lastName} ` : '')
+    + (this.employee?.firstName ? this.employee?.firstName : '')
+    + (this.employee?.middleName ? ` ${this.employee?.middleName}` : '')
+    ;
+
   }
 }

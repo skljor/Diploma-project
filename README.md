@@ -32,17 +32,19 @@ npm run dev
 
 ## Tech. stack
 
-### Frontend
+### Client
 
 - `TypeScript`
 - `Angular`
 - `Sass`
 
-### Backend
+### Server
 
 - `TypeScript`
 - `NodeJS`
 - `ExpressJS`
+- `SQLite3`
+- `Sequelize`
 
 ## Codestyle
 

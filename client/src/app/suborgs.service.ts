@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SuborgsObserver, SuborgsSubject } from 'src/types/suborgs-observer';
 import { HttpClient } from '@angular/common/http';
-import { Organizations } from '../../../server/src/types/organizations';
+import { SubOrg } from '../../../server/src/types/sub-org';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { Organizations } from '../../../server/src/types/organizations';
 export class SuborgsService implements SuborgsSubject {
 
   listeners: SuborgsObserver[] = [];
-  private suborgs: Organizations | undefined;
+  private suborgs: SubOrg[] | undefined;
 
   constructor(
     private http: HttpClient
@@ -20,8 +20,8 @@ export class SuborgsService implements SuborgsSubject {
     })
    }
 
-  private fetchData(queryString?: string) {
-    return this.http.get<Organizations>(queryString ? `http://localhost:5000/suborgs?${queryString}` :'http://localhost:5000/suborgs');
+  private fetchData() {
+    return this.http.get<SubOrg[]>('http://localhost:5000/suborgs');
   } 
 
   public subscribe(observer: SuborgsObserver): void {
@@ -29,7 +29,7 @@ export class SuborgsService implements SuborgsSubject {
     if(this.suborgs)observer.listenSuborgsUpdate(this.suborgs);
   }
 
-  notify(suborgs: Organizations): void {
+  notify(suborgs: SubOrg[]): void {
     this.listeners.forEach((subscriber) => {
       subscriber.listenSuborgsUpdate(suborgs);
     })

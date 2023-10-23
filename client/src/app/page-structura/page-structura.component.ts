@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StructuresService } from '../structures.service';
 import { EmployesService } from '../employes.service';
 import { Structures } from '../../../../server/src/types/structures';
-import { Employ } from '../../../../server/src/types/employ';
+import { Employee } from '../../../../server/src/types/employee';
 import { EmployQueryParams } from 'src/types/employ-query-params';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -16,7 +16,8 @@ import { StructuresObserver } from 'src/types/structures-observer';
 export class PageStructuraComponent implements OnInit, StructuresObserver {
 
   structures: Structures | undefined;
-  employes: Employ[] | undefined;
+  private employees: Employee[] | undefined;
+  filteredEmployees: Employee[] | undefined;
   resetIcon = faRedo;
   employIcon = faUser;
   selectedPagPage = 1;
@@ -31,7 +32,10 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
 
   ngOnInit(): void {
     this.structuresService.subscribe(this);
-    this.getEmployes();
+    this.employesService.getEmployees().subscribe((data) => {
+      this.employees = data;
+      this.selectAll();
+    });
   }
 
   getStructureNameByCode(code: string) {
@@ -39,44 +43,38 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   }
 
   selectAll() {
-    this.searchParams.structureCode = undefined;
-    this.getEmployes();
+    this.filteredEmployees = this.employees;
   }
 
   selectStructure(strucureCode: string) {
     this.searchParams.structureCode = strucureCode;
-    this.getEmployes(this.searchParams);
     this.selectedPagPage = 1;
 
   }
 
   searchSubmit(event: Event, secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
     event.preventDefault();
-    this.searchParams.secondname = secondName.value.length > 0 ? secondName.value : undefined;
+    this.searchParams.lastName = secondName.value.length > 0 ? secondName.value : undefined;
     this.searchParams.jobTitle = jobTitle.value.length > 0 ? jobTitle.value : undefined;
-    this.getEmployes(this.searchParams);
     this.selectedPagPage = 1;
-
+    this.selectBySearchParams();
   }
 
-  private getEmployes(queryParams?: EmployQueryParams) {
-    //  TODO: использовать observable по человечески с подпиской единожды при инициализации  и дальнейшем уведомлении об изменениях
-    if (queryParams) {
-      const queryString = Object.keys(queryParams).filter((key) => !!queryParams[key]).reduce((acc, item, index, arr) => {
-        return index < (arr.length - 1) ? `${acc}${item}=${queryParams[item]}&` : `${acc}${item}=${queryParams[item]}`
-      }, '');
-      this.employesService.getEmploys(queryString).subscribe((data) => {
-        this.employes = data;
-      });
-    } else {
-      this.employesService.getEmploys().subscribe((data) => {
-        this.employes = data;
-      });
-    }
+  selectBySearchParams() {
+    const searchKeys = Object.keys(this.searchParams).filter((key) => this.searchParams[key]);
+
+    this.filteredEmployees = this.employees?.filter(
+      (employee) => searchKeys.every((key) => {
+            //  using 'as string' cuz in code above possibly undefined values was filtered
+        return (employee[key] as string).toLowerCase().startsWith(this.searchParams[key]?.toLowerCase() as string)
+        ||  
+        (this.searchParams[key]?.toLowerCase() === (employee[key] as string).toLowerCase()) 
+      })
+    );
   }
 
   getPagCounts(): Set<number> {
-    return this.employes ? this.createPagSet(this.employes.length) : new Set([1]);
+    return this.filteredEmployees ? this.createPagSet(this.filteredEmployees.length) : new Set([1]);
   }
 
   private createPagSet(total: number): Set<number> {
@@ -88,13 +86,13 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   }
 
   getPagedEmployes() {
-    if (this.employes?.length === 0) {
+    if (this.filteredEmployees?.length === 0) {
       return [];
     }
     return this.selectedPagPage === 1 ? //экскьюз муар за трехэтажный тернарник, я просто люблю тернарники
-    this.employes?.slice(0, this.itemsPerPage) : 
-    this.employes?.slice(this.itemsPerPage * (this.selectedPagPage - 1),
-      (this.itemsPerPage * this.selectedPagPage) > this.employes.length ? this.employes.length : this.itemsPerPage * this.selectedPagPage
+    this.filteredEmployees?.slice(0, this.itemsPerPage) : 
+    this.filteredEmployees?.slice(this.itemsPerPage * (this.selectedPagPage - 1),
+      (this.itemsPerPage * this.selectedPagPage) > this.filteredEmployees.length ? this.filteredEmployees.length : this.itemsPerPage * this.selectedPagPage
     );
   }
 
@@ -107,7 +105,7 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
     jobTitle.value = '';
   }
 
-  listernStructuresUpdate(structures: Structures): void {
+  listenStructuresUpdate(structures: Structures): void {
     this.structures = structures;
   }
 }
