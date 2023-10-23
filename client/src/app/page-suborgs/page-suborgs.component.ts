@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { SuborgsService } from '../suborgs.service';
 import { faRedo, faPhone, faEnvelope, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
-import { Organizations } from '../../../../server/src/types/organizations';
+import { SubOrg} from '../../../../server/src/types/sub-org';
 import { SuborgsSearchParams } from 'src/types/suborgs-search-params';
 import { SuborgsObserver } from 'src/types/suborgs-observer';
 
@@ -15,8 +15,8 @@ export class PageSuborgsComponent implements SuborgsObserver {
   phoneIcon = faPhone
   mailIcon = faEnvelope;
   stPhoneIcon = faPhoneVolume;
-  private suborgs: Organizations | undefined;
-  filteredSuborgs: Organizations | undefined;
+  private suborgs: SubOrg[] | undefined;
+  filteredSuborgs: SubOrg[] | undefined;
   searchParams: SuborgsSearchParams = {};
   private itemsPerPage = 4;
   selectedPage = 1;
@@ -27,7 +27,7 @@ export class PageSuborgsComponent implements SuborgsObserver {
     suborgsService.subscribe(this);
    }
 
-  listenSuborgsUpdate(suborgs: Organizations): void {
+  listenSuborgsUpdate(suborgs: SubOrg[]): void {
     this.suborgs = suborgs;
     this.filterSuborgs();
   }

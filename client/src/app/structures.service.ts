@@ -1,4 +1,4 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Structures } from '../../../server/src/types/structures';
 import { StructuresObserver, StructuresSubject } from 'src/types/structures-observer';
@@ -26,10 +26,10 @@ export class StructuresService implements StructuresSubject{
 
   public subscribe(observer: StructuresObserver): void {
     this.listeners.push(observer);
-    if(this.structures)observer.listernStructuresUpdate(this.structures);
+    if(this.structures)observer.listenStructuresUpdate(this.structures);
   }
 
   notify(structures: Structures): void {
-    this.listeners.forEach((observer) => observer.listernStructuresUpdate(structures));
+    this.listeners.forEach((observer) => observer.listenStructuresUpdate(structures));
   }
 }

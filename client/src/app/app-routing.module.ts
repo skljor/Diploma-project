@@ -23,8 +23,8 @@ const routes: Routes = [
     component: PageStructuraComponent
   },
   {
-    title: 'employ',
-    path: 'employ/:id',
+    title: 'employee',
+    path: 'employee/:id',
     component: PageEmployComponent
   },
   {
