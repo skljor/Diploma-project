@@ -1,0 +1,12 @@
+<form class="search-form" (submit)="handleSubmitClick($event, firstInput, secondInput)">
+    <label class="search-form__input-label">
+      {{ firstLabel }}
+      <input type="text" class="search-form__searchField" #firstInput>
+    </label>
+    <label class="search-form__input-label">
+      {{ secondLabel }}
+      <input type="text" class="search-form__searchField" #jobTitle #secondInput>
+    </label>
+    <button type="submit" class="search-form__searchSubmit">Поиск</button>
+    <button type="button" class="search-form__searchReset" (click)="handleResetClick(firstInput, secondInput)"><fa-icon [icon]="resetIcon"></fa-icon></button>
+  </form>

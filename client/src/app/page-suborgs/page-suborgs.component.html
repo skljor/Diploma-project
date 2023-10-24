@@ -2,18 +2,10 @@
   <h2 class="page-suborgs__header main-container__header">
     Подведомственные организации
   </h2>
-  <form class="page-suborgs__search-form" (submit)="sumbitForm(suborgName, headName, $event)">
-    <label class="page-suborgs__input-label">
-      Наименование
-      <input type="text" class="page-suborgs__searchField" #suborgName>
-    </label>
-    <label class="page-suborgs__input-label">
-      Руководитель
-      <input type="text" class="page-suborgs__searchField" #headName>
-    </label>
-    <button type="submit" class="page-suborgs__searchSubmit">Поиск</button>
-    <button type="button" class="page-suborgs__searchReset" (click)="resetForm(suborgName, headName)"><fa-icon [icon]="resetIcon"></fa-icon></button>
-  </form>
+  <app-search-form firstLabel="Наименование" secondLabel="Руководитель" 
+    (searchSubmitEvent)="searchSubmit($event.firstInputValue, $event.secondInputValue)" 
+    (resetEvent)="resetSearch()">
+  </app-search-form>
   <div class="page-suborgs__suborgs-table">
     <div [class]=" filteredSuborgs && filteredSuborgs.length > 0 ? 'table__nothing-found hidden' : 'table__nothing-found' ">
       Ничего не найдено

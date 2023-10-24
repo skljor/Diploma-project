@@ -14,6 +14,7 @@ import { Page404Component } from './page404/page404.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageEmployComponent } from './page-employ/page-employ.component';
 import { PageSuborgsComponent } from './page-suborgs/page-suborgs.component';
+import { SearchFormComponent } from './search-form/search-form.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PageSuborgsComponent } from './page-suborgs/page-suborgs.component';
     Page404Component,
     FooterComponent,
     PageEmployComponent,
-    PageSuborgsComponent
+    PageSuborgsComponent,
+    SearchFormComponent
   ],
   imports: [
     BrowserModule,

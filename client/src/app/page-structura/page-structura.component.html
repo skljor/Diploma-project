@@ -16,18 +16,7 @@
       </div>
     </div>
   </div>
-  <form class="page-structura__search-form" (submit)="searchSubmit($event, secondName, jobTitle)">
-    <label class="page-structure__input-label">
-      Фамилия
-      <input type="text" class="page-structura__searchField" #secondName>
-    </label>
-    <label class="page-structure__input-label">
-      Должность
-      <input type="text" class="page-structura__searchField" #jobTitle>
-    </label>
-    <button type="submit" class="page-structura__searchSubmit">Поиск</button>
-    <button type="button" class="page-structura__searchReset" (click)="resetForm(secondName, jobTitle)"><fa-icon [icon]="resetIcon"></fa-icon></button>
-  </form>
+  <app-search-form firstLabel="Фамилия" secondLabel="Должность" (searchSubmitEvent)="searchSubmit($event.firstInputValue, $event.secondInputValue)" (resetEvent)="selectAll()"></app-search-form>
   <div class="page-structura__searchTable">
     <div class="table__head">
       <span class="table__header">СОТРУДНИК</span>
