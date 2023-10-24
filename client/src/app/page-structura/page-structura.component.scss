@@ -4,7 +4,6 @@
 
   .map__structure-all {
     background-color: $dark-blue;
-    color: white;
     font-size: 24px;
     font-weight: 500;
     padding: 15px;
@@ -12,9 +11,11 @@
     border: none;
     width: 100%;
     text-align: start;
+    color: $white-l;
     &:hover{
       cursor: pointer;
-      background-color: $dark-blue-s;
+      background-color: $light-blue;
+      transition: background-color 150ms;
     };
   }
 
@@ -35,12 +36,18 @@
   }
   
   .map__structure-name {
-    background-color: white;
     border: none;
     outline: none;
-    color: $black-l;
     font-size: 19px;
     font-weight: 700;
+    color: $dark-blue;
+    background-color: $white-l;
+    box-sizing: border-box;
+    transition: color 100ms;
+    &:hover {
+      cursor: pointer;
+    }
+
   }
     
   .map__items {
@@ -56,15 +63,19 @@
     gap: 5px;
     margin-top: 15px;
 
-    :hover {
+    &:hover {
+
       cursor: pointer;
-      color: $dark-blue-s;
+      .map__structure-name {
+        color: $light-blue;
+
+      }
     }
 
     &.selected {
       .map__structure-name {
-        background-color: $blue-light;
-        color: white;
+        border: solid 2px $dark-blue;
+
       }
     }
   }
@@ -97,42 +108,46 @@
 
   .page-structura__searchField {
     outline: none;
-    border: 1px solid $gray;
+    border: 1px solid $white-s;
     height: 38px;
-    color: $black-s;
+    background-color: $white-m;
     font-size: 16px;
     width: 260px;
+    padding: 0 10px;
+    color: $black-s;
   }
 
   .page-structura__searchSubmit {
     height: 38px;
-    background-color: $blue-light;
-    color: $white-s;
+    color: $white-l;
     outline: none;
     border: none;
-    padding: 0 10px;
+    padding: 0 15px;
     font-size: 18px;
     font-weight: 500;
+    background-color: $dark-blue;
+    transition: background-color 150ms;
 
     &:hover {
       cursor: pointer;
-      background-color: $blue-light-s;
+      background-color: $light-blue;
+
     }
 
   }
 
   .page-structura__searchReset {
-    border: solid 2px $black-s;
-    background-color: white;
+    border: solid 2px $gray;
+    background-color: $white-l;
     height: 38px;
     width: 38px;
     border-radius: 50%;
-    color: $black-s;
+    color: $gray;
 
     &:hover {
       cursor: pointer;
-      color: $black-l;
-      border-color: $black-l;
+      color: $black-s;
+      border-color: $black-s;
     }
   }
 
@@ -154,7 +169,7 @@
     grid-auto-rows: 50px;
     font-size: 16px;
     font-weight: 500;
-    color: $black-l;
+    color: $black-s;
   }
 
   .table__header {
@@ -163,10 +178,10 @@
     justify-content: center;
     width: 100%;
     height: 100%;
-    background-color: $white-s;
+    background-color: $white-m;
     &:nth-child(2),
     &:nth-child(4) {
-      background-color: $gray-s;
+      background-color: $white-s;
     }
   }
 
@@ -191,7 +206,7 @@
       width: 100%;
       align-items: center;
       justify-content: center;
-      background-color: white;
+      background-color: $white-l;
       text-align: center;
     }
 
@@ -199,19 +214,23 @@
     .employ__meet {
       padding: 15px;
       font-size: 18px;
-      color:  $black-l;
+      color:  $black-m;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
     }
 
     .employ__icon {
       font-size: 50px;
+      color:  $black-m;
     }
 
     .employ__structure {
-      color: $blue-light;
+      color: $light-blue;
       font-size: 14px;
       padding: 0 10px;
       border: none;
@@ -219,17 +238,17 @@
       cursor: pointer;
 
       &:hover {
-        color: $dark-blue-s;
+        text-decoration: underline;
       }
 
     }
 
     .employ__job-title {
-      color: $black-l;
+      color: $black-m;
     }
 
     .employ__contacts {
-      color: $blue-light;
+      color: $light-blue;
       line-height: 140%;
       cursor: pointer;
     }
@@ -265,17 +284,19 @@
     outline: none;
     height: 30px;
     width: 30px;
-    background-color: $white-s;
-    color: $black-s;
+    background-color: $light-blue;
+    color: $white-s;
+    transition: background-color 100ms;
 
     &:hover {
       cursor: pointer;
-      background-color: $gray-s;
+      background-color: $dark-blue;
+      color: $white-l;
     }
 
     &.selected {
       background-color: $dark-blue;
-      color: white;
+      color: white-l;
 
       &:hover {
         cursor: default;

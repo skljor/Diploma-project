@@ -24,66 +24,70 @@
 
   .page-suborgs__searchField {
     outline: none;
-    border: 1px solid $gray;
+    border: 1px solid $white-s;
+    background-color: $white-m;
     height: 38px;
     color: $black-s;
     font-size: 16px;
     width: 260px;
+    padding: 0 10px;
+
   }
 
   .page-suborgs__searchSubmit {
     height: 38px;
-    background-color: $blue-light;
+    background-color: $dark-blue;
     color: $white-s;
     outline: none;
     border: none;
     padding: 0 10px;
     font-size: 18px;
     font-weight: 500;
+    transition: background-color 100ms;
 
     &:hover {
       cursor: pointer;
-      background-color: $blue-light-s;
+      background-color: $light-blue;
     }
 
   }
 
   .page-suborgs__searchReset {
-    border: solid 2px $black-s;
-    background-color: white;
+    border: solid 2px $gray;
     height: 38px;
     width: 38px;
     border-radius: 50%;
-    color: $black-s;
+    color: $gray;
+    background-color: $white-l;
 
     &:hover {
       cursor: pointer;
-      color: $black-l;
-      border-color: $black-l;
+      color: $black-s;
+      border-color: $black-s;
     }
   }
 
   .suborg__name {
     font-weight: 400;
     font-size: 18px;
-    color: $black-l;
+    color: $black-m;
     margin: 0px 0px 10px;
   }
 
   .suborg__bellow {
-    color: $dark-blue-s;
+    color: $light-blue;
     font-size: 14px;
     display: flex;
     flex-wrap: wrap;
     column-gap: 10px;
     row-gap: 5px;
     align-items: center;
+
+    fa-icon, .suborg__placeholder {
+      color: $black-m;
+    }
   }
 
-  fa-icon,
-  .suborg__placeholder {
-    color: $black-m;
-  }
 
   .main-container__divideLine {
     margin: 15px;
@@ -104,17 +108,20 @@
     outline: none;
     height: 30px;
     width: 30px;
-    background-color: $white-s;
-    color: $black-s;
+    background-color: $light-blue;
+    color: $white-s;
+    transition: background-color 100ms;
 
     &:hover {
       cursor: pointer;
-      background-color: $gray-s;
+      background-color: $dark-blue;
+      color: $white-l;
     }
 
     &.selected {
       background-color: $dark-blue;
       color: white;
+      color: $white-l;
 
       &:hover {
         cursor: default;

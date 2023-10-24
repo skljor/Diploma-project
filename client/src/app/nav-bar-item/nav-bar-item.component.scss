@@ -2,11 +2,22 @@
 
 .nav-bar__item {
   text-decoration: none;
-  color: $black-s;
-  padding: 4px 8px;
+  color: $white-m;
+  padding: 6px 8px;
+  background-color: $light-blue;
+  border-radius: 6px;
+  transition: background-color 150ms;
+  transform: scale(1);
+  font-weight: 500;
   &.selected {
-    color: $blue-light;
-    border: solid 1px $blue-light;
-    border-radius: 8px;
+    color: $white-l;
+    background-color: $dark-blue;
+    transform-origin: center;
+    transform: scale(1.5);
+  }
+
+  &:hover {
+    background-color: $dark-blue;
+    transform: scale3D(1.2);
   }
 }
