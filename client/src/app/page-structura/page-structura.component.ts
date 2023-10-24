@@ -4,7 +4,6 @@ import { EmployesService } from '../employes.service';
 import { Structures } from '../../../../server/src/types/structures';
 import { Employee } from '../../../../server/src/types/employee';
 import { EmployQueryParams } from 'src/types/employ-query-params';
-import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { StructuresObserver } from 'src/types/structures-observer';
 
@@ -18,7 +17,6 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   structures: Structures | undefined;
   private employees: Employee[] | undefined;
   filteredEmployees: Employee[] | undefined;
-  resetIcon = faRedo;
   employIcon = faUser;
   selectedPagPage = 1;
   private itemsPerPage = 6;
@@ -53,10 +51,9 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
     this.selectBySearchParams();
   }
 
-  searchSubmit(event: Event, secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
-    event.preventDefault();
-    this.searchParams.lastName = secondName.value.length > 0 ? secondName.value : undefined;
-    this.searchParams.jobTitle = jobTitle.value.length > 0 ? jobTitle.value : undefined;
+  searchSubmit(secondName: string, jobTitle: string) {
+    this.searchParams.lastName = secondName.length > 0 ? secondName: undefined;
+    this.searchParams.jobTitle = jobTitle.length > 0 ? jobTitle : undefined;
     this.selectedPagPage = 1;
     this.selectBySearchParams();
   }

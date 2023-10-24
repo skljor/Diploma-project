@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SuborgsService } from '../suborgs.service';
-import { faRedo, faPhone, faEnvelope, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
+import { faPhone, faEnvelope, faPhoneVolume } from '@fortawesome/free-solid-svg-icons';
 import { SubOrg} from '../../../../server/src/types/sub-org';
 import { SuborgsSearchParams } from 'src/types/suborgs-search-params';
 import { SuborgsObserver } from 'src/types/suborgs-observer';
@@ -11,7 +11,6 @@ import { SuborgsObserver } from 'src/types/suborgs-observer';
   styleUrls: ['./page-suborgs.component.scss']
 })
 export class PageSuborgsComponent implements SuborgsObserver {
-  resetIcon = faRedo;
   phoneIcon = faPhone
   mailIcon = faEnvelope;
   stPhoneIcon = faPhoneVolume;
@@ -32,16 +31,13 @@ export class PageSuborgsComponent implements SuborgsObserver {
     this.filterSuborgs();
   }
 
-  sumbitForm(nameField: HTMLInputElement, headnameField: HTMLInputElement, event: Event) {
-    event.preventDefault();
-    this.searchParams.name = nameField.value.length > 0 ? nameField.value : undefined;
-    this.searchParams.headName = headnameField.value.length > 0 ? headnameField.value : undefined;
+  searchSubmit(orgName: string, headName: string) {
+    this.searchParams.name = orgName.length > 0 ? orgName : undefined;
+    this.searchParams.headName = headName.length > 0 ? headName : undefined;
     this.filterSuborgs();
   }
 
-  resetForm(nameField: HTMLInputElement, headnameField: HTMLInputElement) {
-    nameField.value = '';
-    headnameField.value = '';
+  resetSearch() {
     this.searchParams = {};
     this.filteredSuborgs = this.suborgs;
   }
