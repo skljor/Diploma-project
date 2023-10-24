@@ -43,13 +43,14 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   }
 
   selectAll() {
+    this.searchParams = {};
     this.filteredEmployees = this.employees;
   }
 
   selectStructure(strucureCode: string) {
     this.searchParams.structureCode = strucureCode;
     this.selectedPagPage = 1;
-
+    this.selectBySearchParams();
   }
 
   searchSubmit(event: Event, secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
@@ -62,13 +63,13 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
 
   selectBySearchParams() {
     const searchKeys = Object.keys(this.searchParams).filter((key) => this.searchParams[key]);
-
     this.filteredEmployees = this.employees?.filter(
       (employee) => searchKeys.every((key) => {
             //  using 'as string' cuz in code above possibly undefined values was filtered
         return (employee[key] as string).toLowerCase().startsWith(this.searchParams[key]?.toLowerCase() as string)
         ||  
-        (this.searchParams[key]?.toLowerCase() === (employee[key] as string).toLowerCase()) 
+        (this.searchParams[key]?.toLowerCase() === (employee[key] as string).toLowerCase())
+        || (employee[key] as string).toLowerCase().split(' ').find((str) => str.startsWith(this.searchParams[key]?.toLowerCase() as string))
       })
     );
   }
@@ -103,6 +104,7 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   resetForm(secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
     secondName.value = '';
     jobTitle.value = '';
+    this.selectAll();
   }
 
   listenStructuresUpdate(structures: Structures): void {
