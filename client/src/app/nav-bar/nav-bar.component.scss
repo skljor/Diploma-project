@@ -23,18 +23,18 @@
   &::before {
     content: "";
     position: absolute;
-    top: 19px;
-    height: 32px;
-    width: 32px;
+    top: 17px;
+    height: 36px;
+    width: 18px;
   };
   &::after {
-    right: 8%;
-    background: linear-gradient(to right, $white-s-opaciyless, $white-s);
+    right: 9%;
+    background: linear-gradient(to right, rgba(228, 228, 228, 0.08), rgba(228, 228, 228, 1));
   };
   &::before {
     z-index: 1;
-    left: 8%;
-    background: linear-gradient(to left, $white-s-opaciyless, $white-s);
+    left: 9%;
+    background: linear-gradient(to left, rgba(228, 228, 228, 0.1), rgba(228, 228, 228, 1));
   }
 }
 
@@ -88,6 +88,7 @@
   width: max-content;
   position: relative;
   transform: translateX(0px);
-  transition: transform 0.3s;
+  transition: transform 200ms;
   padding: 10px 15px;
 }
+

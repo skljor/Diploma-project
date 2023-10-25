@@ -9,5 +9,4 @@ import { NavItemData } from 'src/types/nav-item-data';
 export class NavBarItemComponent {
   @Input() data: NavItemData | undefined;
   @Input() selected: boolean | undefined;
-  className = 'nav-bar__item';
 }

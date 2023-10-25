@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { NavItemData } from 'src/types/nav-item-data';
 import { Router, NavigationEnd } from '@angular/router';
@@ -13,6 +13,7 @@ export class NavBarComponent implements AfterViewInit {
   @ViewChild('navListWrapper') navListWrapper: ElementRef<HTMLDivElement> | undefined;
   @ViewChild('prevBtn') prevBtn: ElementRef<HTMLButtonElement> | undefined;
   @ViewChild('nextBtn') nextBtn: ElementRef<HTMLButtonElement> | undefined;
+  @ViewChild('elemRef') navElem: ElementRef<HTMLDivElement> | undefined;
   iconPrev = faAngleLeft;
   iconNext = faAngleRight;
   selectedItem: NavItemData | undefined;
@@ -80,6 +81,11 @@ export class NavBarComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.calculateStep();
     this.handleSliderChanges();
+    window.addEventListener('resize', () => {
+      this.sliderPos = 0;
+      this.calculateStep();
+      this.handleSliderChanges();
+    })
   }
 
   private calculateStep(): void {
@@ -118,6 +124,16 @@ export class NavBarComponent implements AfterViewInit {
     }
     if(this.sliderPos === this.maxSliderPos && this.nextBtn) {
       this.nextBtn.nativeElement.classList.remove('active-btn')
+    }
+  }
+
+  scrollToMain() {
+    if (this.navElem) {
+      const scrollHeight = this.navElem.nativeElement.scrollHeight + this.navElem.nativeElement.offsetHeight; 
+      scroll({
+        top: scrollHeight,
+        behavior: 'smooth'
+      });
     }
   }
 }
