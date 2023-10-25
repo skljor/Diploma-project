@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { NavItemData } from 'src/types/nav-item-data';
 import { Router, NavigationEnd } from '@angular/router';
@@ -80,6 +80,10 @@ export class NavBarComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.calculateStep();
     this.handleSliderChanges();
+    window.addEventListener('resize', () => {
+      this.sliderPos = 0;
+      this.handleSliderChanges();
+    })
   }
 
   private calculateStep(): void {

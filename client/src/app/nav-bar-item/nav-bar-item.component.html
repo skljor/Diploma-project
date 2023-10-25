@@ -1,3 +1,5 @@
-<a routerLink={{data?.route}} [class]="selected ? className + ' selected' : className">
-  {{ data?.label }}
-</a>
+<div [class]="selected ? ' nav-item__wrapper selected' : 'nav-item__wrapper' ">
+  <a routerLink={{data?.route}} class='nav-item__link' >
+    {{ data?.label }}
+  </a>
+</div>

@@ -1,23 +1,28 @@
 @import '../../sass/colors.scss';
 
-.nav-bar__item {
-  text-decoration: none;
-  color: $white-m;
-  padding: 6px 8px;
+.nav-item__wrapper {
   background-color: $light-blue;
   border-radius: 6px;
-  transition: background-color 150ms;
-  transform: scale(1);
-  font-weight: 500;
+  transition: all 150ms;
+
   &.selected {
-    color: $white-l;
     background-color: $dark-blue;
-    transform-origin: center;
-    transform: scale(1.5);
+    transform: scale(1.06);
+    .nav-item__link {
+      color: $white-l;
+    }
   }
 
   &:hover {
     background-color: $dark-blue;
-    transform: scale3D(1.2);
+    transform: scale(1.06);
   }
+}
+
+.nav-item__link {
+  display: flex;
+  padding: 6px 8px;
+  text-decoration: none;
+  color: $white-m;
+  font-weight: 500;
 }
