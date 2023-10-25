@@ -13,6 +13,7 @@ export class NavBarComponent implements AfterViewInit {
   @ViewChild('navListWrapper') navListWrapper: ElementRef<HTMLDivElement> | undefined;
   @ViewChild('prevBtn') prevBtn: ElementRef<HTMLButtonElement> | undefined;
   @ViewChild('nextBtn') nextBtn: ElementRef<HTMLButtonElement> | undefined;
+  @ViewChild('elemRef') navElem: ElementRef<HTMLDivElement> | undefined;
   iconPrev = faAngleLeft;
   iconNext = faAngleRight;
   selectedItem: NavItemData | undefined;
@@ -82,6 +83,7 @@ export class NavBarComponent implements AfterViewInit {
     this.handleSliderChanges();
     window.addEventListener('resize', () => {
       this.sliderPos = 0;
+      this.calculateStep();
       this.handleSliderChanges();
     })
   }
@@ -122,6 +124,16 @@ export class NavBarComponent implements AfterViewInit {
     }
     if(this.sliderPos === this.maxSliderPos && this.nextBtn) {
       this.nextBtn.nativeElement.classList.remove('active-btn')
+    }
+  }
+
+  scrollToMain() {
+    if (this.navElem) {
+      const scrollHeight = this.navElem.nativeElement.scrollHeight + this.navElem.nativeElement.offsetHeight; 
+      scroll({
+        top: scrollHeight,
+        behavior: 'smooth'
+      });
     }
   }
 }
