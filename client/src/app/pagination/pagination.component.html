@@ -1,0 +1,6 @@
+
+<div [class]="totalLength && totalLength > 0 ? 'pagination__controls' : 'pagination__controls hidden' ">
+    <button type="button" *ngFor="let num of createPagSet()" [class]=" currentPage === num ? 'pagination__btn selected' : 'pagination__btn' " (click)="handlePagClick(num)">
+      {{ num }}
+    </button>
+</div>

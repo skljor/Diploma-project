@@ -1,0 +1,41 @@
+@import '../../sass/colors.scss';
+
+.page-education__wrapper {
+    .education__name {
+        font-weight: 400;
+        font-size: 18px;
+        color: $black-m;
+        margin: 0px 0px 10px;
+      }
+    
+      .education__bellow {
+        color: $light-blue;
+        font-size: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 5px;
+        align-items: center;
+    
+        fa-icon, .education__placeholder {
+          color: $black-m;
+        }
+      }
+    
+    
+      .main-container__divideLine {
+        margin: 15px;
+      }
+    
+    
+      .page-education__nothing-found {
+        padding: 100px;
+        text-align: center;
+        font-size: 20px;
+        color: $black-s;
+        &.hidden {
+          display: none;
+        }
+      }
+
+}

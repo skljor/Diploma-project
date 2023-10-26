@@ -1,0 +1,41 @@
+@import '../../sass/colors.scss';
+
+.pagination__controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    gap: 10px;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+.pagination__btn {
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 30px;
+  background-color: $light-blue;
+  color: $white-s;
+  transition: background-color 100ms;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $dark-blue;
+    color: $white-l;
+  }
+
+  &.selected {
+    background-color: $dark-blue;
+    color: white;
+    color: $white-l;
+
+    &:hover {
+      cursor: default;
+      background-color: $dark-blue
+    }
+  }
+}

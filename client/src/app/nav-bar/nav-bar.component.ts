@@ -32,7 +32,7 @@ export class NavBarComponent implements AfterViewInit {
     },
     {
       label: 'Образовательные учереждения',
-      route: 'ed-establisments'
+      route: 'education'
     },
     {
       label: 'Информационные системы',

@@ -49,9 +49,5 @@
       <div class="main-container__divideLine"></div>
     </div>
   </div>
-  <div [class]="filteredSuborgs && filteredSuborgs.length > 0 ? 'table__pagination' : 'table__pagination hidden' ">
-    <button type="button" *ngFor="let num of getPagCounts()" [class]=" selectedPage === num ? 'table__pag-btn selected' : 'table__pag-btn' " (click)="handlePagClick(num)">
-      {{ num }}
-    </button>
-  </div>
+  <app-pagination [itemsPerPage]="itemsPerPage" [totalLength]="filteredSuborgs?.length" (pageSelected)=" selectedPage = $event "></app-pagination>
 </div>

@@ -17,7 +17,7 @@ export class PageSuborgsComponent implements SuborgsObserver {
   private suborgs: SubOrg[] | undefined;
   filteredSuborgs: SubOrg[] | undefined;
   searchParams: SuborgsSearchParams = {};
-  private itemsPerPage = 4;
+  itemsPerPage = 4;
   selectedPage = 1;
 
   constructor(
@@ -52,22 +52,6 @@ export class PageSuborgsComponent implements SuborgsObserver {
     const basedLowered = based.toLowerCase();
     const searchedLowered = searched.toLowerCase();
     return basedLowered === searchedLowered || basedLowered.startsWith(searchedLowered) || !!basedLowered.split(' ').find((sliced) => sliced.startsWith(searchedLowered) || sliced.endsWith(searchedLowered));
-  }
-
-  getPagCounts(): Set<number> {
-    return this.filteredSuborgs ? this.createPagSet(this.filteredSuborgs.length) : new Set([1]);
-  }
-
-  private createPagSet(total: number): Set<number> {
-    const set: Set<number> = new Set();
-    for (let num = 1; num <= Math.ceil(total / this.itemsPerPage); num ++) {
-      set.add(num);
-    }
-    return set;
-  }
-  
-  handlePagClick(num: number) {
-    this.selectedPage = num;
   }
 
   getPagedSubrogs() {

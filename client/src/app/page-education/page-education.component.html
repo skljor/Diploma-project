@@ -1,0 +1,53 @@
+<div class="page-education__wrapper">
+    <h2 class="main-container__header">
+        Образовательные учереждения
+    </h2>
+    <app-search-form firstLabel="Наименование" secondLabel="Руководитель" 
+        (searchSubmitEvent)="searchSubmit($event.firstInputValue, $event.secondInputValue)"
+        (resetEvent)="resetSearch()">
+    </app-search-form>
+    <div class="page-education__table">
+      <div [class]=" filteredEducations && filteredEducations.length > 0 ? 'page-education__nothing-found hidden' : 'page-education__nothing-found' ">
+        Ничего не найдено
+      </div>
+        <div class="education" *ngFor="let education of getPagedEducations()">
+            <h3 class="education__name">
+              {{education.name}}
+            </h3>
+            <div class="education__bellow">
+              <div class="education__phone">
+                <fa-icon [icon]="phoneIcon"></fa-icon>
+                 {{education.phone}} 
+              </div>
+              <div class="education__mail">
+                <fa-icon [icon]="mailIcon"></fa-icon>
+                {{ education.mail }}
+              </div>
+              <div class="suborg__st-phone" *ngIf="education.stPhone">
+                <fa-icon [icon]="stPhoneIcon"></fa-icon>
+                 {{ education.stPhone }}
+              </div>
+              <div class="education__head">
+                <span class="education__placeholder">
+                  Руководитель:
+                </span>
+                {{ education.headName }}
+              </div>
+              <div class="education__law-adress">
+                <span class="education__placeholder">
+                  Юридический адрес:
+                </span>
+                {{ education.lawAdress }}
+              </div>
+              <div class="education__real-adress">
+                <span class="education__placeholder">
+                  Фактический адрес:
+                </span>
+                {{ education.realAdress }}
+              </div>
+            </div>
+            <div class="main-container__divideLine"></div>
+          </div>
+    </div>
+    <app-pagination [itemsPerPage]="itemsPerPage" [totalLength]="filteredEducations?.length" (pageSelected)=" selectedPage = $event"></app-pagination>
+</div>

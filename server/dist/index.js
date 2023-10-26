@@ -55,6 +55,19 @@ const Employee = sequelize.define('Employee', {
     timestamps: false,
     tableName: 'Employees'
 });
+const Education = sequelize.define('Education', {
+    educationID: { type: sequelize_1.DataTypes.INTEGER, primaryKey: true },
+    name: { type: sequelize_1.DataTypes.STRING },
+    headName: { type: sequelize_1.DataTypes.STRING },
+    lawAdress: { type: sequelize_1.DataTypes.STRING },
+    realAdress: { type: sequelize_1.DataTypes.STRING },
+    phone: { type: sequelize_1.DataTypes.STRING },
+    stPhone: { type: sequelize_1.DataTypes.STRING },
+    mail: { type: sequelize_1.DataTypes.STRING }
+}, {
+    timestamps: false,
+    tableName: 'Educations'
+});
 app.get('/', (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.send('Api is working');
@@ -73,6 +86,11 @@ app.get('/suborgs', (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     res.setHeader('Access-Control-Allow-Origin', '*');
     const suborgs = yield SubOrg.findAll();
     res.send(suborgs);
+}));
+app.get('/educations', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    const educations = yield Education.findAll();
+    res.send(educations);
 }));
 app.listen(PORT, () => {
     console.log('The server is online on port ' + PORT);
