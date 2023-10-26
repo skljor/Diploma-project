@@ -4,6 +4,7 @@ import { faPhone, faEnvelope, faPhoneVolume } from '@fortawesome/free-solid-svg-
 import { SubOrg} from '../../../../server/src/types/sub-org';
 import { SuborgsSearchParams } from 'src/types/suborgs-search-params';
 import { SuborgsObserver } from 'src/types/suborgs-observer';
+import { SliceLen } from 'src/types/pagination';
 
 @Component({
   selector: 'app-page-suborgs',
@@ -19,6 +20,7 @@ export class PageSuborgsComponent implements SuborgsObserver {
   searchParams: SuborgsSearchParams = {};
   private itemsPerPage = 4;
   selectedPage = 1;
+  sliceLen: SliceLen | undefined;
 
   constructor(
     private suborgsService: SuborgsService
@@ -52,22 +54,6 @@ export class PageSuborgsComponent implements SuborgsObserver {
     const basedLowered = based.toLowerCase();
     const searchedLowered = searched.toLowerCase();
     return basedLowered === searchedLowered || basedLowered.startsWith(searchedLowered) || !!basedLowered.split(' ').find((sliced) => sliced.startsWith(searchedLowered) || sliced.endsWith(searchedLowered));
-  }
-
-  getPagCounts(): Set<number> {
-    return this.filteredSuborgs ? this.createPagSet(this.filteredSuborgs.length) : new Set([1]);
-  }
-
-  private createPagSet(total: number): Set<number> {
-    const set: Set<number> = new Set();
-    for (let num = 1; num <= Math.ceil(total / this.itemsPerPage); num ++) {
-      set.add(num);
-    }
-    return set;
-  }
-  
-  handlePagClick(num: number) {
-    this.selectedPage = num;
   }
 
   getPagedSubrogs() {

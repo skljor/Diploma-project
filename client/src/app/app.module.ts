@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { PageEmployComponent } from './page-employ/page-employ.component';
 import { PageSuborgsComponent } from './page-suborgs/page-suborgs.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { PageEducationComponent } from './page-education/page-education.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { SearchFormComponent } from './search-form/search-form.component';
     FooterComponent,
     PageEmployComponent,
     PageSuborgsComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    PageEducationComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,4 @@
 import express from 'express';
-import { Response } from 'express';
 import { Sequelize, DataTypes } from 'sequelize';
 
 
@@ -50,6 +49,21 @@ const Employee = sequelize.define('Employee', {
   tableName: 'Employees'
 });
 
+const Education = sequelize.define('Education', {
+  educationID: { type: DataTypes.INTEGER, primaryKey: true },
+  firstName: { type: DataTypes.STRING },
+  middleName: { type: DataTypes.STRING },
+  lastName: { type: DataTypes.STRING },
+  jobTitle: { type: DataTypes.STRING },
+  structureCode: { type: DataTypes.STRING },
+  schedule: { type: DataTypes.STRING },
+  phone: { type: DataTypes.STRING },
+  mail: { type: DataTypes.STRING }
+}, {
+  timestamps: false,
+  tableName: 'Educations'
+});
+
 
 app.get('/', (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -72,7 +86,13 @@ app.get('/suborgs', async(req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   const suborgs = await SubOrg.findAll();
   res.send(suborgs);
-})
+});
+
+app.get('/educations', async(req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  const educations = await Education.findAll();
+  res.send(educations);
+});
 
 app.listen(PORT, () => {
   console.log('The server is online on port ' + PORT);
