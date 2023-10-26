@@ -51,13 +51,12 @@ const Employee = sequelize.define('Employee', {
 
 const Education = sequelize.define('Education', {
   educationID: { type: DataTypes.INTEGER, primaryKey: true },
-  firstName: { type: DataTypes.STRING },
-  middleName: { type: DataTypes.STRING },
-  lastName: { type: DataTypes.STRING },
-  jobTitle: { type: DataTypes.STRING },
-  structureCode: { type: DataTypes.STRING },
-  schedule: { type: DataTypes.STRING },
+  name: { type: DataTypes.STRING },
+  headName: { type: DataTypes.STRING },
+  lawAdress: { type: DataTypes.STRING },
+  realAdress: { type: DataTypes.STRING },
   phone: { type: DataTypes.STRING },
+  stPhone: { type: DataTypes.STRING },
   mail: { type: DataTypes.STRING }
 }, {
   timestamps: false,

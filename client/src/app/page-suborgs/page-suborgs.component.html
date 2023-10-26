@@ -49,5 +49,5 @@
       <div class="main-container__divideLine"></div>
     </div>
   </div>
-  <app-pagination [itemsPerPage]="4" [totalLength]="filteredSuborgs?.length" (pageSelected)=" selectedPage = $event " ></app-pagination>
+  <app-pagination [itemsPerPage]="itemsPerPage" [totalLength]="filteredSuborgs?.length" (pageSelected)=" selectedPage = $event "></app-pagination>
 </div>

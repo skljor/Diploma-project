@@ -4,7 +4,6 @@ import { faPhone, faEnvelope, faPhoneVolume } from '@fortawesome/free-solid-svg-
 import { SubOrg} from '../../../../server/src/types/sub-org';
 import { SuborgsSearchParams } from 'src/types/suborgs-search-params';
 import { SuborgsObserver } from 'src/types/suborgs-observer';
-import { SliceLen } from 'src/types/pagination';
 
 @Component({
   selector: 'app-page-suborgs',
@@ -18,9 +17,8 @@ export class PageSuborgsComponent implements SuborgsObserver {
   private suborgs: SubOrg[] | undefined;
   filteredSuborgs: SubOrg[] | undefined;
   searchParams: SuborgsSearchParams = {};
-  private itemsPerPage = 4;
+  itemsPerPage = 4;
   selectedPage = 1;
-  sliceLen: SliceLen | undefined;
 
   constructor(
     private suborgsService: SuborgsService

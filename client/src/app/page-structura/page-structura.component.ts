@@ -19,7 +19,7 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   filteredEmployees: Employee[] | undefined;
   employIcon = faUser;
   selectedPagPage = 1;
-  private itemsPerPage = 6;
+  itemsPerPage = 6;
   searchParams: EmployQueryParams = {};
 
 
@@ -71,18 +71,6 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
     );
   }
 
-  getPagCounts(): Set<number> {
-    return this.filteredEmployees ? this.createPagSet(this.filteredEmployees.length) : new Set([1]);
-  }
-
-  private createPagSet(total: number): Set<number> {
-    const set: Set<number> = new Set();
-    for (let num = 1; num <= Math.ceil(total / this.itemsPerPage); num ++) {
-      set.add(num);
-    }
-    return set;
-  }
-
   getPagedEmployes() {
     if (this.filteredEmployees?.length === 0) {
       return [];
@@ -92,16 +80,6 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
     this.filteredEmployees?.slice(this.itemsPerPage * (this.selectedPagPage - 1),
       (this.itemsPerPage * this.selectedPagPage) > this.filteredEmployees.length ? this.filteredEmployees.length : this.itemsPerPage * this.selectedPagPage
     );
-  }
-
-  handlePagClick(pageNum: number) {
-    this.selectedPagPage = pageNum;
-  }
-
-  resetForm(secondName: HTMLInputElement, jobTitle: HTMLInputElement) {
-    secondName.value = '';
-    jobTitle.value = '';
-    this.selectAll();
   }
 
   listenStructuresUpdate(structures: Structures): void {
