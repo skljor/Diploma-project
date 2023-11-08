@@ -7,7 +7,7 @@
     </div>
     <div class="nav-bar__middle" #navListWrapper>
       <div class="nav-bar__list" #navListElem>
-        <app-nav-bar-item *ngFor="let item of navItems" [data]="item" [selected]="item === selectedItem" (click)="scrollToMain()"></app-nav-bar-item>
+        <app-nav-bar-item *ngFor="let item of navItems" [data]="item" (click)="scrollToMain()"></app-nav-bar-item>
       </div>
     </div>
     <div class="nav-bar__right">

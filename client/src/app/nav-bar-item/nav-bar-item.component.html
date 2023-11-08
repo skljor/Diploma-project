@@ -1,5 +1,4 @@
-<div [class]="selected ? ' nav-item__wrapper selected' : 'nav-item__wrapper' ">
-  <a routerLink={{data?.route}} class='nav-item__link' >
-    {{ data?.label }}
-  </a>
-</div>
+<a routerLink={{data?.route}} class='nav-item__link' routerLinkActive="selected">
+  {{ data?.label }}
+</a>
+
