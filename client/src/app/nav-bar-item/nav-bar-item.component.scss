@@ -1,6 +1,11 @@
 @import '../../sass/colors.scss';
 
-.nav-item__wrapper {
+.nav-item__link {
+  display: flex;
+  padding: 6px 8px;
+  text-decoration: none;
+  color: $white-m;
+  font-weight: 500;
   background-color: $light-blue;
   border-radius: 6px;
   transition: all 150ms;
@@ -17,12 +22,4 @@
     background-color: $dark-blue;
     transform: scale(1.06);
   }
-}
-
-.nav-item__link {
-  display: flex;
-  padding: 6px 8px;
-  text-decoration: none;
-  color: $white-m;
-  font-weight: 500;
 }

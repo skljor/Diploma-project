@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 import { NavItemData } from 'src/types/nav-item-data';
-import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,7 +15,6 @@ export class NavBarComponent implements AfterViewInit {
   @ViewChild('elemRef') navElem: ElementRef<HTMLDivElement> | undefined;
   iconPrev = faAngleLeft;
   iconNext = faAngleRight;
-  selectedItem: NavItemData | undefined;
   navItems: NavItemData[] = [ //TODO: move to separate file
     {
       label: 'О министерстве',
@@ -66,17 +64,6 @@ export class NavBarComponent implements AfterViewInit {
   private sliderPos = 0;
   private maxSliderPos = 0;
   private sliderStep = 0;
-
-  constructor(private router: Router) {
-    this.selectedItem = this.navItems[0];
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {// уж лучше так, чем бегать по DOM через квериселектор
-        const url = event.url.split('/')[1];
-
-        this.selectedItem = url ? this.navItems.find((item) => item.route === url) : this.navItems[0];
-      }
-    });
-  }
 
   ngAfterViewInit(): void {
     this.calculateStep();
