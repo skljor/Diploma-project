@@ -2,6 +2,16 @@
 
 > DiplomaProject is non-commercial clone of mintrud.orb.ru with spa angular frontend and independed expressJS backend api
 
+## Deploy
+
+### Кликабельный клиент
+
+https://dimplomaproject-9b3d7.web.app
+
+
+### Backend Api
+
+Хостится на https://diplomaprojectnanervah.onrender.com/
 
 ## Scripts
 

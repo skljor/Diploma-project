@@ -1,244 +1,208 @@
 @import '../../sass/colors.scss';
 
-.page-structura__wrapper {
-
-  .map__structure-all {
-    background-color: $dark-blue;
-    font-size: 24px;
-    font-weight: 500;
-    padding: 15px;
-    border-radius: 8px;
-    border: none;
-    width: 100%;
-    text-align: start;
-    color: $white-l;
-    &:hover{
-      cursor: pointer;
-      background-color: $light-blue;
-      transition: background-color 150ms;
-    };
-  }
-
-  .map__content {
-    display: flex;
-    margin-left: 50px;
-  }
-  
-  .map__vertical-line,
-  .map__horizontal-line {
-    border-radius: 2px;
-    background-color: $dark-blue;
-    opacity: 0.8;
-  }
-
-  .map__vertical-line {
-    width: 2px;
-  }
-  
-  .map__structure-name {
-    border: none;
-    outline: none;
-    font-size: 19px;
-    font-weight: 700;
-    color: $dark-blue;
-    background-color: $white-l;
-    box-sizing: border-box;
-    transition: color 100ms;
-    &:hover {
-      cursor: pointer;
-    }
-
-  }
-    
-  .map__items {
-    position: relative;
-    top: 13px;
-    right: 2px;
-  }
-
-  .map__item {
-    height: 26px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-top: 15px;
-
-    &:hover {
-
-      cursor: pointer;
-      .map__structure-name {
-        color: $light-blue;
-
-      }
-    }
-
-    &.selected {
-      .map__structure-name {
-        border: solid 2px $dark-blue;
-
-      }
-    }
-  }
-
-  .map__horizontal-line {
-    display: inline-block;
-    height: 2px;
-    width: 68px;
-  }
-
-  .page-structura__horizontal-line {
-    margin: 30px 0px;
-  }
-
-  .page-structura__searchTable {
-    margin-bottom: 30px;
-  }
-
-  .table__head,
-  .table__employ {
-    display: grid;
-    grid-template-columns: 6fr 5fr 4fr 5fr;
-  }
-
-  .table__head {
-    grid-auto-rows: 50px;
-    font-size: 16px;
-    font-weight: 500;
-    color: $black-s;
-  }
-
-  .table__header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    background-color: $white-m;
-    &:nth-child(2),
-    &:nth-child(4) {
-      background-color: $white-s;
-    }
-  }
-
-  .table__item {
-    padding: 15px 0px;
-  }
-
-  .table__employ {
-    * {
-      box-sizing: border-box;
-    }
-    justify-items: center;
-    align-items: center ;
-    column-gap: 2px;
-    background-color: $white-s;
-    .employ__meet,
-    .employ__structure,
-    .employ__job-title,
-    .employ__contacts {
-      display: flex;
-      height: 100%;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-      background-color: $white-l;
-      text-align: center;
-    }
-
-
-    .employ__meet {
-      padding: 15px;
-      font-size: 18px;
-      color:  $black-m;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-decoration: none;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    .employ__icon {
-      font-size: 50px;
-      color:  $black-m;
-    }
-
-    .employ__structure {
-      color: $light-blue;
-      font-size: 14px;
-      padding: 0 10px;
-      border: none;
-      outline: none;
-      cursor: pointer;
-
-      &:hover {
-        text-decoration: underline;
-      }
-
-    }
-
-    .employ__job-title {
-      color: $black-m;
-    }
-
-    .employ__contacts {
-      color: $light-blue;
-      line-height: 140%;
-      cursor: pointer;
-    }
-  }
-
-  .table__divideLine {
-    margin-top: 15px;
-  }
-
-  .table__nothing-found {
-    padding: 100px;
-    text-align: center;
-    font-size: 20px;
-    color: $black-s;
-    &.hidden {
-      display: none;
-    }
-  }
-
-  .table__pagination {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    &.hidden {
-      display: none;
-    }
-  }
-
-  .table__pag-btn {
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-    outline: none;
-    height: 30px;
-    width: 30px;
+.map__structure-all {
+  background-color: $dark-blue;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  text-align: start;
+  color: $white-l;
+  &:hover{
+    cursor: pointer;
     background-color: $light-blue;
-    color: $white-s;
-    transition: background-color 100ms;
+    transition: background-color 150ms;
+  };
+}
+.map__content {
+  display: flex;
+  margin-left: 50px;
+}
 
+.map__vertical-line,
+.map__horizontal-line {
+  border-radius: 2px;
+  background-color: $dark-blue;
+  opacity: 0.8;
+}
+.map__vertical-line {
+  width: 2px;
+}
+
+.map__structure-name {
+  border: none;
+  outline: none;
+  font-size: 19px;
+  font-weight: 700;
+  color: $dark-blue;
+  background-color: $white-l;
+  box-sizing: border-box;
+  transition: color 100ms;
+  &:hover {
+    cursor: pointer;
+  }
+}
+  
+.map__items {
+  position: relative;
+  top: 13px;
+  right: 2px;
+}
+.map__item {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 15px;
+  &:hover {
+    cursor: pointer;
+    .map__structure-name {
+      color: $light-blue;
+    }
+  }
+  &.selected {
+    .map__structure-name {
+      border: solid 2px $dark-blue;
+    }
+  }
+}
+.map__horizontal-line {
+  display: inline-block;
+  height: 2px;
+  width: 68px;
+}
+.page-structura__horizontal-line {
+  margin: 30px 0px;
+}
+.page-structura__searchTable {
+  margin-bottom: 30px;
+}
+.table__head,
+.table__employ {
+  display: grid;
+  grid-template-columns: 6fr 5fr 4fr 5fr;
+}
+.table__head {
+  grid-auto-rows: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  color: $black-s;
+}
+.table__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: $white-m;
+  &:nth-child(2),
+  &:nth-child(4) {
+    background-color: $white-s;
+  }
+}
+.table__item {
+  padding: 15px 0px;
+}
+.table__employ {
+  * {
+    box-sizing: border-box;
+  }
+  justify-items: center;
+  align-items: center ;
+  column-gap: 2px;
+  background-color: $white-s;
+  .employ__meet,
+  .employ__structure,
+  .employ__job-title,
+  .employ__contacts {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: $white-l;
+    text-align: center;
+  }
+  .employ__meet {
+    padding: 15px;
+    font-size: 18px;
+    color:  $black-m;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
     &:hover {
-      cursor: pointer;
-      background-color: $dark-blue;
-      color: $white-l;
+      text-decoration: underline;
     }
-
-    &.selected {
-      background-color: $dark-blue;
-      color: white-l;
-
-      &:hover {
-        cursor: default;
-        background-color: $dark-blue
-      }
-      
+  }
+  .employ__icon {
+    font-size: 50px;
+    color:  $black-m;
+  }
+  .employ__structure {
+    color: $light-blue;
+    font-size: 14px;
+    padding: 0 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
     }
-
+  }
+  .employ__job-title {
+    color: $black-m;
+  }
+  .employ__contacts {
+    color: $light-blue;
+    line-height: 140%;
+    cursor: pointer;
+  }
+}
+.table__divideLine {
+  margin-top: 15px;
+}
+.table__nothing-found {
+  padding: 100px;
+  text-align: center;
+  font-size: 20px;
+  color: $black-s;
+  &.hidden {
+    display: none;
+  }
+}
+.table__pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  &.hidden {
+    display: none;
+  }
+}
+.table__pag-btn {
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  height: 30px;
+  width: 30px;
+  background-color: $light-blue;
+  color: $white-s;
+  transition: background-color 100ms;
+  &:hover {
+    cursor: pointer;
+    background-color: $dark-blue;
+    color: $white-l;
+  }
+  &.selected {
+    background-color: $dark-blue;
+    color: white-l;
+    &:hover {
+      cursor: default;
+      background-color: $dark-blue
+    }
+    
   }
 }
