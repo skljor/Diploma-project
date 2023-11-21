@@ -1,9 +1,10 @@
 import express from 'express';
 import { Sequelize, DataTypes } from 'sequelize';
-
+import cors from 'cors';
 
 const app = express();
 const PORT = 5000;
+app.use(cors());
 const sequelize = new Sequelize({
   host:'./database/sqlite.db',
   dialect: 'sqlite'
@@ -65,30 +66,25 @@ const Education = sequelize.define('Education', {
 
 
 app.get('/', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   res.send('Api is working');
 })
 
 app.get('/structures', async(req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   const structures = await Structure.findAll();
   res.send(structures);
 });
 
 app.get('/employees', async(req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   const employees = await Employee.findAll();
   res.send(employees);
 });
 
 app.get('/suborgs', async(req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   const suborgs = await SubOrg.findAll();
   res.send(suborgs);
 });
 
 app.get('/educations', async(req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
   const educations = await Education.findAll();
   res.send(educations);
 });
