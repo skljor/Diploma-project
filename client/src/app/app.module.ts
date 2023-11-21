@@ -17,6 +17,7 @@ import { PageSuborgsComponent } from './page-suborgs/page-suborgs.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { PageEducationComponent } from './page-education/page-education.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     PageSuborgsComponent,
     SearchFormComponent,
     PageEducationComponent,
-    PaginationComponent
+    PaginationComponent,
+    LoadingIndicatorComponent
   ],
   imports: [
     BrowserModule,

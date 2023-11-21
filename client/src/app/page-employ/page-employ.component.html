@@ -1,4 +1,5 @@
-<div class="page-employ__wrapper">
+<app-loading-indicator *ngIf="!loaded"></app-loading-indicator>
+<div class="page-employ__wrapper" *ngIf="loaded">
   <h2 class="page-employ__header main-container__header">Сотрудник</h2>
   <div [class]="employee?.employeeID ? 'page-employ__not-found hidden' : 'page-employ__not-found'">
     Проблема с загрузкой данных. Подождите или попробуйте найти другого сотрудника.

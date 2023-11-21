@@ -21,7 +21,7 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
   selectedPagPage = 1;
   itemsPerPage = 6;
   searchParams: EmployQueryParams = {};
-
+  loaded = false;
 
   constructor (
     private structuresService: StructuresService,
@@ -32,6 +32,7 @@ export class PageStructuraComponent implements OnInit, StructuresObserver {
     this.structuresService.subscribe(this);
     this.employesService.getEmployees().subscribe((data) => {
       this.employees = data;
+      this.loaded = true;
       this.selectAll();
     });
   }

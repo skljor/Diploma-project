@@ -1,4 +1,5 @@
-<div class="page-suborgs__wrapper">
+<app-loading-indicator *ngIf="!loaded"></app-loading-indicator>
+<div class="page-suborgs__wrapper" *ngIf="loaded">
   <h2 class="page-suborgs__header main-container__header">
     Подведомственные организации
   </h2>

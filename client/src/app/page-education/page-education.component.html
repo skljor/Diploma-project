@@ -1,4 +1,5 @@
-<div class="page-education__wrapper">
+<app-loading-indicator *ngIf="!loaded"></app-loading-indicator>
+<div class="page-education__wrapper" *ngIf="loaded">
     <h2 class="main-container__header">
         Образовательные учереждения
     </h2>
