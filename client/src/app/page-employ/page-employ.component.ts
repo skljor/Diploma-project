@@ -16,6 +16,7 @@ export class PageEmployComponent implements OnInit, StructuresObserver {
   employee: Employee | undefined;
   structures: Structures | undefined;
   employIcon = faUser;
+  loaded = false;
 
   constructor(
     private employService: EmployesService,
@@ -27,6 +28,7 @@ export class PageEmployComponent implements OnInit, StructuresObserver {
     const id = this.activatedRoot.snapshot.paramMap.get('id')
     this.employService.getEmployees().subscribe((data) => {
       this.employee = data.find((employee) => employee.employeeID === parseInt(id as string));
+      this.loaded = true
     });
     this.structuresService.subscribe(this);
   }

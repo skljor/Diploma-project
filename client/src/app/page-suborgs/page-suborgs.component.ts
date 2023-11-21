@@ -19,6 +19,7 @@ export class PageSuborgsComponent implements SuborgsObserver {
   searchParams: SuborgsSearchParams = {};
   itemsPerPage = 4;
   selectedPage = 1;
+  loaded = false;
 
   constructor(
     private suborgsService: SuborgsService
@@ -29,6 +30,7 @@ export class PageSuborgsComponent implements SuborgsObserver {
   listenSuborgsUpdate(suborgs: SubOrg[]): void {
     this.suborgs = suborgs;
     this.filterSuborgs();
+    this.loaded = true;
   }
 
   searchSubmit(orgName: string, headName: string) {

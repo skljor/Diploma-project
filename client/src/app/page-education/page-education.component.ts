@@ -18,6 +18,7 @@ export class PageEducationComponent {
   filteredEducations: Education[] | undefined;
   selectedPage = 1;
   itemsPerPage = 4;
+  loaded = false;
 
   constructor(
     private educationService: EducationService
@@ -25,6 +26,7 @@ export class PageEducationComponent {
     educationService.getEducatons().subscribe((data) => { 
       this.educations = data;
       this.filterEducations();
+      this.loaded = true;
     });
     
   }

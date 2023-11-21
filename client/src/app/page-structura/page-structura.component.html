@@ -1,4 +1,5 @@
-<div class="page-structura__wrapper">
+<app-loading-indicator *ngIf="!loaded"></app-loading-indicator>
+<div class="page-structura__wrapper" *ngIf="loaded">
   <h2 class="page-structura__header main-container__header">Структура</h2>
   <div class="page-structura__map">
     <div class="map__header">
