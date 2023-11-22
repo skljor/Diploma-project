@@ -7,6 +7,8 @@
       {{ secondLabel }}
       <input type="text" class="search-form__searchField" #jobTitle #secondInput>
     </label>
-    <button type="submit" class="search-form__searchSubmit">Поиск</button>
-    <button type="button" class="search-form__searchReset" (click)="handleResetClick(firstInput, secondInput)"><fa-icon [icon]="resetIcon"></fa-icon></button>
+    <div class="search-form__controls">
+      <button type="submit" class="search-form__searchSubmit">Поиск</button>
+      <button type="button" class="search-form__searchReset" (click)="handleResetClick(firstInput, secondInput)"><fa-icon [icon]="resetIcon"></fa-icon></button>
+    </div>
   </form>

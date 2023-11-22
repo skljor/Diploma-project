@@ -15,10 +15,22 @@
     background-color: $light-blue;
     transition: background-color 150ms;
   };
+  @media (min-width:769px) and (max-width:1200px) {
+    font-size: 20px;
+  }
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 }
 .map__content {
   display: flex;
   margin-left: 50px;
+  @media (min-width: 769px) and (max-width:1200px) {
+    margin-left: 25px;
+  }
+  @media (max-width: 768px) {
+    margin-left: 10px;
+  }
 }
 
 .map__vertical-line,
@@ -29,9 +41,13 @@
 }
 .map__vertical-line {
   width: 2px;
+  @media (max-width:910px) {
+    display: none;
+  }
 }
 
 .map__structure-name {
+  text-align: start;
   border: none;
   outline: none;
   font-size: 19px;
@@ -43,14 +59,17 @@
   &:hover {
     cursor: pointer;
   }
+  @media (min-width: 769px) and (max-width:1200px) {
+    font-size: 16px;
+  }
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
-  
-.map__items {
+.map__item {
   position: relative;
   top: 13px;
   right: 2px;
-}
-.map__item {
   height: 26px;
   display: flex;
   align-items: center;
@@ -72,6 +91,12 @@
   display: inline-block;
   height: 2px;
   width: 68px;
+  @media (min-width:910px) and (max-width:1200px) {
+    width: 34px;
+  }
+  @media (max-width:910px) {
+    display: none;
+  }
 }
 .page-structura__horizontal-line {
   margin: 30px 0px;
@@ -82,13 +107,23 @@
 .table__head,
 .table__employ {
   display: grid;
-  grid-template-columns: 6fr 5fr 4fr 5fr;
+  grid-template-columns: 5fr 6fr 4fr 5fr;
+  @media (max-width: 600px) {
+    grid-template-columns: 5fr 6fr 4fr;
+  }
 }
 .table__head {
   grid-auto-rows: 50px;
   font-size: 16px;
   font-weight: 500;
   color: $black-s;
+  @media (min-width: 560px) and (max-width:1100px) {
+    font-size: 14px;
+    grid-auto-rows: 80px
+  }
+  @media (max-width: 559px) {
+    font-size: 12px;
+  }
 }
 .table__header {
   display: flex;
@@ -97,9 +132,17 @@
   width: 100%;
   height: 100%;
   background-color: $white-m;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 0px 10px;
   &:nth-child(2),
   &:nth-child(4) {
     background-color: $white-s;
+  }
+  @media (max-width: 600px) {
+    &:nth-child(4) {
+      display: none;
+    }
   }
 }
 .table__item {
@@ -117,6 +160,7 @@
   .employ__structure,
   .employ__job-title,
   .employ__contacts {
+    box-sizing: border-box;
     display: flex;
     height: 100%;
     width: 100%;
@@ -124,9 +168,9 @@
     justify-content: center;
     background-color: $white-l;
     text-align: center;
+    padding: 0px 10px;
   }
   .employ__meet {
-    padding: 15px;
     font-size: 18px;
     color:  $black-m;
     display: flex;
@@ -136,10 +180,16 @@
     &:hover {
       text-decoration: underline;
     }
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
   .employ__icon {
     font-size: 50px;
     color:  $black-m;
+    @media (max-width: 768px) {
+      font-size: 40px;
+    }
   }
   .employ__structure {
     color: $light-blue;
@@ -151,6 +201,9 @@
     &:hover {
       text-decoration: underline;
     }
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
   }
   .employ__job-title {
     color: $black-m;
@@ -159,6 +212,12 @@
     color: $light-blue;
     line-height: 140%;
     cursor: pointer;
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      display: none;
+    }
   }
 }
 .table__divideLine {
