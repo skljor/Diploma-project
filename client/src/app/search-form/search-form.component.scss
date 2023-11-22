@@ -10,6 +10,9 @@
     * {
       box-sizing: border-box;
     }
+    @media (max-width: 810px) {
+      flex-direction: column;
+    }
   }
 
   .search-form__input-label {
@@ -18,6 +21,9 @@
     gap: 5px;
     color: $gray;
     font-size: 18px;
+    @media (max-width: 810px) {
+      width: 100%;
+    }
   }
 
   .search-form__searchField {
@@ -29,6 +35,17 @@
     width: 260px;
     padding: 0 10px;
     color: $black-s;
+    @media (max-width: 810px) {
+      width: 100%;
+    }
+  }
+
+  .search-form__controls {
+    display: flex;
+    gap: 20px;
+    @media (max-width: 810px) {
+      margin: 0px auto;
+    }
   }
 
   .search-form__searchSubmit {
