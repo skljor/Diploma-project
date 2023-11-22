@@ -18,6 +18,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { PageEducationComponent } from './page-education/page-education.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator.component';
+import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoadingIndicatorComponent } from './loading-indicator/loading-indicator
     SearchFormComponent,
     PageEducationComponent,
     PaginationComponent,
-    LoadingIndicatorComponent
+    LoadingIndicatorComponent,
+    NavMenuComponent
   ],
   imports: [
     BrowserModule,

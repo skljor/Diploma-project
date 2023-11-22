@@ -1,0 +1,42 @@
+@import '../../sass/colors.scss';
+
+
+.burger {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 20px 0px 0px 30px;
+    position: relative;
+    z-index: 999;
+
+    .stripe {
+        display: inline-block;
+        width: 40px;
+        height: 8px;
+        background-color: $white-l;
+        border: solid $black-l 2px;
+        border-radius: 9px;
+    }
+
+    @media (min-width: 769px) {
+        display: none;
+    }
+}
+
+.menu {
+    @media (max-width: 768px) {
+        box-sizing: border-box;
+        position: absolute;
+        top: 35px;
+        left: 15px;
+        width: 390px;
+        z-index: 99;
+        background-color: $white-m;
+        padding: 80px 0px;
+        transition: left 200ms;
+        border-radius: 9px;
+        &.hidden {
+            left: -390px
+        }
+    }
+}

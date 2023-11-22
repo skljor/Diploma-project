@@ -13,6 +13,14 @@
 .top-bar__left {
   color: $white-l;
   font-style: italic;
+
+  @media (min-width: 460px) and (max-width: 560px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 459px) {
+    font-size: 12px;
+  }
 }
 
 .top-bar__left,
@@ -32,6 +40,9 @@
   padding: 4px 8px;
   font-size: 19px;
   font-weight: 300;
+  @media (max-width: 440px) {
+    font-size: 16px;
+  }
 }
 
 .top-bar__right {
